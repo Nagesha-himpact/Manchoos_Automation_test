@@ -189,10 +189,10 @@ th {
         <div class="navbar-header">
           <div class="project-name visible-md visible-lg">Protractor Test Execution Report</div>
           <div class="label-container">
-            <span class="label label-success" title=TestCases>Passed: 1</span>
-            
+            <span class="label label-success" title=TestCases>Passed: 0</span>
+            <span class="label label-danger" title=TestCases>Failed: 1</span> 
 			
-            <span class="label label-info">Time Elapsed: 0h 0min 42s</span>
+            <span class="label label-info">Time Elapsed: 0h 0min 31s</span>
           </div>
         </div>
       </div>
@@ -200,11 +200,11 @@ th {
 
     <div class="container">
 	
-    <div class="generated-on">3/25/2021, 5:37:16 PM</div>
+    <div class="generated-on">3/26/2021, 2:17:41 PM</div>
 	
     <!--<div class="generated-on"><b>Platform:</b> Windows</div>
     <div class="info"><b>Browser:</b> chrome 89.0.4389.90</div>
-    <div class="info"><b>Generated on:</b> 3/25/2021, 5:37:16 PM</div>-->
+    <div class="info"><b>Generated on:</b> 3/26/2021, 2:17:41 PM</div>-->
 
 
       <div class="row">
@@ -246,12 +246,13 @@ th {
       <h4 class="panel-title">
           <a data-toggle="collapse" href="#collapseSuite0">
           
-            <span class="label label-success"><i class="glyphicon glyphicon-ok"></i></span>
+            <span class="label label-danger"><i class="glyphicon glyphicon-remove"></i></span>
           
-          <font color="green"><b>TestSuite:</b>Create timings and calendar </font>
+          <font color="red"><b>TestSuite:</b>Create timings and calendar </font>
+          
           <span class="label-container">
-            <span class="label label-success">1</span>
             
+            <span class="label label-danger">1</span>
             
             
           </span>
@@ -266,16 +267,16 @@ th {
                     <h4 class="panel-title">
                       <a data-toggle="collapse" href="#collapseTestCase0_0">
                         
-                          <span class="label label-success"><i class="glyphicon glyphicon-ok"></i></span>
+                          <span class="label label-danger"><i class="glyphicon glyphicon-remove"></i></span>
                         
 
-                        <font color="green"><b>TestCase:</b>Create timings and Calendar Availability</font>
                         
                         
+                        <font color="red"><b>TestCase:</b>Create timings and Calendar Availability</font>
                         <span class="label-container">
-                          <span class="label label-success" title="Passed">Passed</span>
                           
                           
+                          <span class="label label-danger" title="Failed">Failed</span>
                       </a>
                     </h4>
                   </div>
@@ -285,15 +286,21 @@ th {
                       <p class="scenario-container">
                         
                           <span class="label label-primary" title="Success"><i class="glyphicon glyphicon-time"></i></span>
-                          <font color="black">Time elapsed: 42 seconds</font>
+                          <font color="black">Time elapsed: 31 seconds</font>
 
+                          
+                            <br />
+                            <span class="label label-danger"><i class="glyphicon glyphicon-remove"></i></span>
+                            <font color="red">Failed: chrome not reachable
+  (Session info: chrome=89.0.4389.90)
+  (Driver info: chromedriver=89.0.4389.23 (61b08ee2c50024bab004e48d2b1b083cdbdac579-refs/branch-heads/4389@{#294}),platform=Windows NT 10.0.19042 x86_64)</font>
                           
 
                           
                             <br />
                             <span class="label label-primary"><i class="glyphicon glyphicon-camera"></i></span>
                             
-                              Screenshot:
+                              Screenshot on failure:
                             
                             <a class="screenshot" href="chrome/screenshots/chrome-Create timings and calendar  Create timings and Calendar Availability.png" data-lightbox="chrome-Create timings and calendar  Create timings and Calendar Availability.png">
                               <img src="chrome/screenshots/chrome-Create timings and calendar  Create timings and Calendar Availability.png" style="width:100%;height:100%" alt="Screenshot not found: chrome/screenshots/chrome-Create timings and calendar  Create timings and Calendar Availability.png"/>
@@ -340,16 +347,16 @@ th {
       google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(function() {drawChart({
                                                               "title": "TestSuites",
-                                                              "passed": 1,
-                                                              "failed": 0,
+                                                              "passed": 0,
+                                                              "failed": 1,
         })
       });
       google.charts.setOnLoadCallback(function() {drawChart({
                                                               "title": "TestCases",
-                                                              "passed": 1,
+                                                              "passed": 0,
                                                               "skipped": 0,
                                                               "errors": 0,
-                                                              "failed": 0
+                                                              "failed": 1
         })
       });
 
