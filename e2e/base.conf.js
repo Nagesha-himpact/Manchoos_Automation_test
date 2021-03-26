@@ -12,7 +12,7 @@ config.specs = [
 	'specs/manchoos-DineIn.js',
 	//'specs/manchoos-Tmgs-Calendar.js'
 	//'specs/manchoos-tmgs-holiday.js'
-	'specs/manchoos-Modifiers.js',
+	//'specs/manchoos-Modifiers.js',
 	'specs/manchoos-Addons.js'
 ];
 
