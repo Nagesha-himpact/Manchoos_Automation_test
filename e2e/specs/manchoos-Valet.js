@@ -1,7 +1,7 @@
 const { browser } = require('protractor');
 const valetPage = require('../pages/valetPage');
 
-describe('Login Logout Test cases execution ', function () {
+describe('Valet section create-update-delete flow ', function () {
 
     'use strict';
 
