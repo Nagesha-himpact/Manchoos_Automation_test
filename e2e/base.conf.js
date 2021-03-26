@@ -8,12 +8,12 @@ waitTimeout = 120000;
 config.specs = [
     `global.js`,
 	`specs/sampleTest.js`,
-	//'specs/manchoos-Valet.js',
-	//'specs/manchoos-DineIn.js',
+	'specs/manchoos-Valet.js',
+	'specs/manchoos-DineIn.js',
 	//'specs/manchoos-Tmgs-Calendar.js'
 	//'specs/manchoos-tmgs-holiday.js'
-	//'specs/manchoos-Modifiers.js'
-	//'specs/manchoos-Addons.js'
+	'specs/manchoos-Modifiers.js'
+	'specs/manchoos-Addons.js'
 ];
 
 config.onPrepare = function () {
