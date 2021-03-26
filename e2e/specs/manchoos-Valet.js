@@ -47,11 +47,11 @@ describe('Login Logout Test cases execution ', function () {
      })
 
     //valet valet parking spots
-     it('valet parking spots validation',function(){
-         loginPage.loginPage(testData.manchoos.baseUrl);
-         loginPage.login(testData.credentials.userName,testData.credentials.passWord ); 
-         leftNavigationPage.navigateToValet()
-         valetPage.validationSpots(sidebarPrkingspots)
-         dashBoardPage.logout();
-     })
+     //it('valet parking spots validation',function(){
+       //  loginPage.loginPage(testData.manchoos.baseUrl);
+      //   loginPage.login(testData.credentials.userName,testData.credentials.passWord ); 
+       //  leftNavigationPage.navigateToValet()
+       //  valetPage.validationSpots(sidebarPrkingspots)
+      //   dashBoardPage.logout();
+   //  })
 }); 
