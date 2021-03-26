@@ -1,0 +1,58 @@
+{
+  "manchoos": {
+    "baseUrl": "https://rm---qa.web.app"
+  },
+  "credentials": {
+    "userName": "nagesh@123",
+    "passWord": "Nagesh@123"
+  },
+  "valet":{
+    "sectionName" : "Out door",
+    "sectionCode" :"O9",
+    "parkingSpots" : "20",
+    "accessiBility" : "10",
+    "reserved" : "10",
+    "UpdateSectionName" : "Out door1",
+    "UpdateSectionCode" : "08",
+    "updateParkingSpots" : "30",
+    "updateAccessiBility" : "0",
+    "updateReserved" : "0"
+  },
+  "dineIn" :{
+    "sectionName" : "Ground Floor",
+    "sectionCode" : "B1",
+    "addNoTable" :"10",
+    "updateSectionName" : "First floor",
+    "updateSectionCode" : "A1",
+    "updateAddNoTable" : "20"
+  },
+  "timingsCalendar" : {
+    "breakFast" : "BreakFast"
+  },
+  "modifiers" : {
+    "customModifiers" :"break Fast",
+    "optionName" : "morning BreakFast",
+    "editCustomModifiers" : "Lunch",
+    "editOptionName" : "after noon lunch"
+  },
+  "addOns" : {
+    "customAddonsName" : "Fonta",
+    "optionName" :"Half ltr",
+    "price" : "20",
+    "editCustomAddonsName" : "Sprite",
+    "editOptionName" : "One ltr",
+    "editPrice" : "40"
+  },
+  "results": {
+    "result1": "www.helloselenium.com"
+  },
+  "users": {
+    "firstName": "demo",
+    "lastName" : "user",
+    "email" : "demouser@gmail.com",
+    "phoneNumber" : "1234567890",
+    "Address" : "No 123 4ths street NA",
+    "State" : "Karnataka",
+    "zipCode" : "560056"
+  }
+}
