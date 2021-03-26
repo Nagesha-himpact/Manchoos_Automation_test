@@ -27,31 +27,31 @@ describe('Login Logout Test cases execution ', function () {
     })
 
     //Valet update flow
-    // it('valet Section Update',function(){
-    //     loginPage.loginPage(testData.manchoos.baseUrl);
-    //     loginPage.login(testData.credentials.userName,testData.credentials.passWord ); 
-    //     leftNavigationPage.navigateToValet();
-    //     valetPage.valetSectionUpdate(testData.valet.UpdateSectionName,testData.valet.UpdateSectionCode,testData.valet.updateParkingSpots,testData.valet.updateAccessiBility,testData.valet.updateReserved);
-    //     dashBoardPage.logout();
-    // })
+     it('valet Section Update',function(){
+         loginPage.loginPage(testData.manchoos.baseUrl);
+         loginPage.login(testData.credentials.userName,testData.credentials.passWord ); 
+         leftNavigationPage.navigateToValet();
+         valetPage.valetSectionUpdate(testData.valet.UpdateSectionName,testData.valet.UpdateSectionCode,testData.valet.updateParkingSpots,testData.valet.updateAccessiBility,testData.valet.updateReserved);
+         dashBoardPage.logout();
+     })
 
     //Valet disable ,enable ,delete flow
-    // it('Valet section disable ,enable and delete',function(){
-    //     loginPage.loginPage(testData.manchoos.baseUrl);
-    //     loginPage.login(testData.credentials.userName,testData.credentials.passWord);
-    //     leftNavigationPage.navigateToValet()
-    //     valetPage.valetSectionDisable()
-    //     valetPage.valetSectionEnable()  
-    //     valetPage.valetSectionDelete()
-    //     dashBoardPage.logout();
-    // })
+     it('Valet section disable ,enable and delete',function(){
+        loginPage.loginPage(testData.manchoos.baseUrl);
+         loginPage.login(testData.credentials.userName,testData.credentials.passWord);
+        leftNavigationPage.navigateToValet()
+         valetPage.valetSectionDisable()
+         valetPage.valetSectionEnable()  
+         valetPage.valetSectionDelete()
+         dashBoardPage.logout();
+     })
 
     //valet valet parking spots
-    // it('valet parking spots validation',function(){
-    //     loginPage.loginPage(testData.manchoos.baseUrl);
-    //     loginPage.login(testData.credentials.userName,testData.credentials.passWord ); 
-    //     leftNavigationPage.navigateToValet()
-    //     valetPage.validationSpots(sidebarPrkingspots)
-    //     dashBoardPage.logout();
-    // })
+     it('valet parking spots validation',function(){
+         loginPage.loginPage(testData.manchoos.baseUrl);
+         loginPage.login(testData.credentials.userName,testData.credentials.passWord ); 
+         leftNavigationPage.navigateToValet()
+         valetPage.validationSpots(sidebarPrkingspots)
+         dashBoardPage.logout();
+     })
 }); 
