@@ -1,6 +1,7 @@
 const { browser } = require('protractor');
 
-describe('create addons & update , custom add-ons flow',function(){
+describe('Add addons items & update ,create custom add-ons options',function(){
+    
     'use strict';
 
     var testData=require('../resources/testData.json')
@@ -10,7 +11,8 @@ describe('create addons & update , custom add-ons flow',function(){
     var menuDashBoardPage=new pages.menuDashBoardPage()
     var addOnsPage=new pages.addOnsPage()
 
-    it ('create Add 0ns flow',function(){
+    //
+    it ('Add Add 0ns options list',function(){
         loginPage.loginPage(testData.manchoos.baseUrl)
         loginPage.login(testData.credentials.userName,testData.credentials.passWord)
         leftNavigationPage.navigateToMenu()
@@ -18,7 +20,7 @@ describe('create addons & update , custom add-ons flow',function(){
         addOnsPage.createAddOnsflow()
         dashBoardPage.logout()
     })
-    it('update Add-ons flow',function(){
+    it('update Add-ons options list',function(){
         loginPage.loginPage(testData.manchoos.baseUrl)
         loginPage.login(testData.credentials.userName,testData.credentials.passWord)
         leftNavigationPage.navigateToMenu()

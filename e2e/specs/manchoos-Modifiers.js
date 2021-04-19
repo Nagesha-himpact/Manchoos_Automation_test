@@ -10,8 +10,7 @@ describe("Add mofiers and submodifiers",function(){
     var menuDashBoardPage=new pages.menuDashBoardPage();
     var waitActions=new commons.waitActions();
 
-    //Modifiers select by all toggle icon
-    it ('add modifiers',function(){
+    it ('add modifiers ',function(){
         loginPage.loginPage(testData.manchoos.baseUrl)
         loginPage.login(testData.credentials.userName,testData.credentials.passWord)
         leftNavigationPage.navigateToMenu()
@@ -25,15 +24,15 @@ describe("Add mofiers and submodifiers",function(){
         loginPage.login(testData.credentials.userName,testData.credentials.passWord)
         leftNavigationPage.navigateToMenu()
         menuDashBoardPage.clickOnControlPanel()
-        reMenuModifiersPage.createCustomModifiers(testData.modifiers.customModifiers,testData.modifiers.optionName)
+        reMenuModifiersPage.createCustomModifiers(testData.modifiers.addCustomModifiersName,testData.modifiers.optionName)
         dashBoardPage.logout()
     })
-    it('edit custom Modifiers',function(){
+    it('Update custom Modifiers',function(){
         loginPage.loginPage(testData.manchoos.baseUrl)
         loginPage.login(testData.credentials.userName,testData.credentials.passWord)
         leftNavigationPage.navigateToMenu()
         menuDashBoardPage.clickOnControlPanel()
-        reMenuModifiersPage.editCustomModifiers(testData.modifiers.editCustomModifiers)
+        reMenuModifiersPage.editCustomModifiers(testData.modifiers.editCustomModifiers,testData.modifiers.editOptionName)
         dashBoardPage.logout()
     })
     it('Create Sub-modifers flow',function(){
@@ -44,20 +43,20 @@ describe("Add mofiers and submodifiers",function(){
         reMenuModifiersPage.createSubModifiers()
         dashBoardPage.logout()
     })
-    it('Create Sub-modifers flow',function(){
+    it('Create Custom Sub-modifers flow',function(){
         loginPage.loginPage(testData.manchoos.baseUrl)
         loginPage.login(testData.credentials.userName,testData.credentials.passWord)
         leftNavigationPage.navigateToMenu()
         menuDashBoardPage.clickOnControlPanel()
-        reMenuModifiersPage.createCustomSubModifiers(testData.modifiers.customModifiers,testData.modifiers.optionName)
+        reMenuModifiersPage.createCustomSubModifiers(testData.subModifiers.addCustomSubModifiersName,testData.subModifiers.SubModifieroptionName)
         dashBoardPage.logout()
     })
-    it('Create Sub-modifers flow',function(){
+    it('Update custom Sub-modifers flow',function(){
         loginPage.loginPage(testData.manchoos.baseUrl)
         loginPage.login(testData.credentials.userName,testData.credentials.passWord)
         leftNavigationPage.navigateToMenu()
         menuDashBoardPage.clickOnControlPanel()
-        reMenuModifiersPage.editCustomSubModifiers(testData.modifiers.editCustomModifiers)
+        reMenuModifiersPage.editCustomSubModifiers(testData.subModifiers.editCustomSubModifiers,testData.subModifiers.editSubModifierOptionName)
         dashBoardPage.logout()
     })    
 })

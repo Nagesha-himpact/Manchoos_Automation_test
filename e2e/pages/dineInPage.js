@@ -3,7 +3,7 @@ const { ExpectedConditions } = require("protractor");
 module.exports = function () {
     'use strict'
 
-    //import required actions and create object for its
+    //import required actions and create object
     var objRepo = require('../resources/objectRepository.json');
     var objLocator = new utils.objectLocator();
     var buttonActions = new commons.buttonActions();
@@ -17,12 +17,12 @@ module.exports = function () {
     var sectionName = objLocator.findLocator(objRepo.dineIn.sectionName)
     var sectionCode = objLocator.findLocator(objRepo.dineIn.sectionCode)
     var addNoTable = objLocator.findLocator(objRepo.dineIn.addNoTable)
-    var incrsAddNoTable = objLocator.findLocator(objRepo.dineIn.incrsAddNoTable)
     var seatingCapacity = objLocator.findLocator(objRepo.dineIn.seatingCapacity)
-    var childFriendly = objLocator.findLocator(objRepo.dineIn.childFriendly)
-    var drinkingPermited = objLocator.findLocator(objRepo.dineIn.drinkingPermited)
-    var handiCaped = objLocator.findLocator(objRepo.dineIn.handiCaped)
-    var smokingPermited = objLocator.findLocator(objRepo.dineIn.smokingPermited)
+    var increaseAddNoTablePlusIcon = objLocator.findLocator(objRepo.dineIn.increaseAddNoTablePlusIcon)
+    var childFriendlyCheckBox = objLocator.findLocator(objRepo.dineIn.childFriendlyCheckBox)
+    var drinkingPermitedCheckBox = objLocator.findLocator(objRepo.dineIn.drinkingPermitedCheckBox)
+    var handiCapedCheckBox = objLocator.findLocator(objRepo.dineIn.handiCapedCheckBox)
+    var smokingPermitedCheckBox = objLocator.findLocator(objRepo.dineIn.smokingPermitedCheckBox)
     var saveButton = objLocator.findLocator(objRepo.dineIn.saveButton)
     var alertOkButton = objLocator.findLocator(objRepo.dineIn.alertOkButton)
     var deleteSection = objLocator.findLocator(objRepo.dineIn.deleteSection)
@@ -32,6 +32,7 @@ module.exports = function () {
     var enableSection = objLocator.findLocator(objRepo.dineIn.enableSection)
     var enableAlert = objLocator.findLocator(objRepo.dineIn.enableAlert)
    
+  
     //Filter Elements
     var featureFilter = objLocator.findLocator(objRepo.dineIn.featureFilter)
     var childFiendlyFilter = objLocator.findLocator(objRepo.dineIn.childFiendlyFilter)
@@ -45,8 +46,9 @@ module.exports = function () {
     var sixSeaterFilter = objLocator.findLocator(objRepo.dineIn.sixSeaterFilter)
     var eightSeaterFilter = objLocator.findLocator(objRepo.dineIn.eightSeaterFilter)
     var tenSeaterFilter = objLocator.findLocator(objRepo.dineIn.tenSeaterFilter)
-    
-    //Seater Elements
+    var dineInSeaterName=objLocator.findLocator(objRepo.dineIn.dineInSeaterName)
+   
+    //Seater locators
     var fourSeaterCheckBox=objLocator.findLocator(objRepo.dineIn.fourSeaterCheckBox)
     var fourSeaterTable1=objLocator.findLocator(objRepo.dineIn.fourSeaterTable1)
     var fourSeaterTable2=objLocator.findLocator(objRepo.dineIn.fourSeaterTable2)
@@ -57,6 +59,7 @@ module.exports = function () {
 
     //Print all section name
     var getSectionName=objLocator.findLocator(objRepo.dineIn.getSectionName)
+    var dineInSeaterName=objLocator.findLocator(objRepo.dineIn.dineInSeaterName)
 
 
     //Dine in through launch the Url
@@ -101,29 +104,30 @@ module.exports = function () {
          return this;
      }
     this.clickOnPlusIcon = function () {
-        buttonActions.click(incrsAddNoTable)
+        buttonActions.click(increaseAddNoTablePlusIcon)
         return this;
     }
-    this.selectChildFriendly = function () {
-        buttonActions.click(childFriendly)
+    this.selectChildFriendlyCheckBox = function () {  
+        buttonActions.click(childFriendlyCheckBox)
         return this;
     }
-    this.selectDrinkingPermited = function () {
-        buttonActions.click(drinkingPermited)
+    this.selectDrinkingPermitedCheckBox = function () {
+        buttonActions.click(drinkingPermitedCheckBox)
         return this;
     }
-    this.selectHandiCaped = function () {
-        buttonActions.click(handiCaped)
+    this.selectHandiCapedCheckBox = function () {
+        buttonActions.click(handiCapedCheckBox)
         return this;
     }
-    this.selectSmokingPermited = function () {
-        buttonActions.click(smokingPermited)
+    this.selectSmokingPermitedCheckBox = function () {
+        buttonActions.click(smokingPermitedCheckBox)
         return this;
     }
     this.clickOnSaveButton = function () {
         buttonActions.click(saveButton)
         return this;
     }
+
     this.clickOnAlertOk = function () {
         buttonActions.click(alertOkButton)
         return this;
@@ -155,11 +159,11 @@ module.exports = function () {
 
 
     //Update button click function
-    this.update_Button = function () {
+    this.DineInSectionDetailsUpdateButton = function () {
         buttonActions.click(updateButton)
         return this;
     }
-    this.update_AlrtOkButton = function () {
+    this.DineInSectionDetailsUpdateAlrtOkButton = function () {
         buttonActions.click(updateAlrtOkButton)
         return this;
     }
@@ -230,11 +234,26 @@ module.exports = function () {
         return this;
     }
    
+      //Dine in validation
+      this.dineInSectionNameValidation=function(){
+        getSectionName.getText().then(function(text) {
+            console.log("dineInSection name spots : ",text);
+            expect(text).toEqual("First Floor");  
+          });
+        return this;
+    }
 
+    this.dineInSeaterNameValidation=function(){
+        dineInSeaterName.getText().then(function(text) {
+            console.log("dineInSeaters spots : ",text);
+            expect(text).toEqual("4-Seaters");  
+          });
+        return this;
+    }
 
     //Create the Dine-In section & Table by calling functions
     this.dineInCreate = function (sectionName, sectionCode,addNoTable) {
-        browser.sleep(2000)
+        browser.sleep(2000)                                          // to some wait to create a table
         this.clickAddNewSection()
         browser.sleep(2000)
         this.enterSectionName(sectionName)
@@ -249,13 +268,13 @@ module.exports = function () {
         // waitActions.wait()
         this.enterAddNoTables(addNoTable)
         browser.sleep(10000)
-        // this.selectChildFriendly()
+        // this.selectChildFriendlyCheckBox()
         // waitActions.waitForElementIsDisplayed()
-        // this.selectDrinkingPermited()
+        // this.selectDrinkingPermitedCheckBox()
         // waitActions.waitForElementIsDisplayed()
-        // this.selectHandiCaped()
+        // this.selectHandiCapedCheckBox()
         // waitActions.waitForElementIsDisplayed()
-        // this.selectSmokingPermited()
+        // this.selectSmokingPermitedCheckBox()
         // waitActions.waitForElementIsDisplayed()
         this.clickOnSaveButton()
         browser.sleep(2000)
@@ -278,18 +297,18 @@ module.exports = function () {
         waitActions.wait()
         this.enterAddNoTables(updateAddNoTable)
         waitActions.wait()
-        this.selectChildFriendly()
+        this.selectChildFriendlyCheckBox()
         waitActions.waitForElementIsDisplayed()
-        this.selectDrinkingPermited()
+        this.selectDrinkingPermitedCheckBox()
         waitActions.waitForElementIsDisplayed()
-        //this.selectHandiCaped()
+        //this.selectHandiCapedCheckBox()
         waitActions.waitForElementIsDisplayed()
-        this.selectSmokingPermited()
+        this.selectSmokingPermitedCheckBox()
         waitActions.waitForElementIsDisplayed()
         waitActions.wait()
-        this.update_Button()
+        this.DineInSectionDetailsUpdateButton()
         waitActions.wait()
-        this.update_AlrtOkButton()
+        this.DineInSectionDetailsUpdateAlrtOkButton()
         waitActions.wait()
     }
 
@@ -393,6 +412,14 @@ module.exports = function () {
         waitActions.wait()
         this.clickOnDeleteAlert()
         waitActions.wait()
+    }
 
+    this.dineInSectionValidation=function(){
+        waitActions.wait()
+        this.dineInSectionNameValidation()
+        waitActions.wait()
+        waitActions.wait()
+        this.dineInSeaterNameValidation()
+        waitActions.wait()
     }
 }

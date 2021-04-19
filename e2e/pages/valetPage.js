@@ -1,11 +1,17 @@
+const { browser } = require('protractor');
+
 module.exports=function(){
     'use strict'
-    //valet create and its validaiton
+    
+    //import required actions and create object for its
     var objRepo = require('../resources/objectRepository.json');
     var objLocator = new utils.objectLocator();
     var buttonActions=new commons.buttonActions();
     var inputBoxActions=new commons.inputBoxActions();
     var waitActions=new commons.waitActions();
+
+    
+    //create valet section and its validaiton
     var addNewsection=objLocator.findLocator(objRepo.valet.addNewsection)
     var sectionName=objLocator.findLocator(objRepo.valet.sectionName)
     var sectionCode=objLocator.findLocator(objRepo.valet.sectionCode)
@@ -14,11 +20,13 @@ module.exports=function(){
     var reserved=objLocator.findLocator(objRepo.valet.reserved)
     var saveButton=objLocator.findLocator(objRepo.valet.saveButton)
     var disableSection=objLocator.findLocator(objRepo.valet.disableSection)
+    var cancelDisableAlert=objLocator.findLocator(objRepo.valet.cancelDisableAlert)
     var alertDisablebutton=objLocator.findLocator(objRepo.valet.alertDisablebutton)
     var enableSection=objLocator.findLocator(objRepo.valet.enableSection)
     var alertEnablebutton=objLocator.findLocator(objRepo.valet.alertEnablebutton)
     var deleteSection=objLocator.findLocator(objRepo.valet.deleteSection)
-    var alertDeletebutton=objLocator.findLocator(objRepo.valet.alertDeletebutton)
+    var alertDeleteButton=objLocator.findLocator(objRepo.valet.alertDeleteButton)
+    
     
     //Update variable and locators declartion
     var updateButton=objLocator.findLocator(objRepo.valet.updateButton)
@@ -26,7 +34,13 @@ module.exports=function(){
     var alertOkButton=objLocator.findLocator(objRepo.valet.alertOkButton)
 
     //Validation parking spots 
-    var sidebarPrkingspots=objLocator.findLocator(objRepo.valet.sidebarPrkingspots)
+    var availableSpots=objLocator.findLocator(objRepo.valet.availableSpots)
+    var accessibilitySpots=objLocator.findLocator(objRepo.valet.accessibilitySpots)
+    var reservedSpots=objLocator.findLocator(objRepo.valet.reservedSpots)
+    var sectionDetailsParkingSpots=objLocator.findLocator(objRepo.valet.sectionDetailsParkingSpots)
+    //var valetSectionCount=objLocator.findLocator(objRepo.valet.valetSectionCount)
+    
+    
     
     this.valetPage= function(path){
         if(typeof path === 'undefined'){
@@ -35,6 +49,7 @@ module.exports=function(){
         browser.get(path)
         return this;
     }
+
     //Add new valet secton flow
     this.clickaddNewsection=function(){
         waitActions.wait();
@@ -53,14 +68,11 @@ module.exports=function(){
         inputBoxActions.type(parkingSpots, value)
         return this;
     }
-    // Error in Accessibility to enter the value
 
+    // Error in Accessibility to enter the value
     this.enterAccesBilityParkingSpots=function(value){
     inputBoxActions.type(accessiBility, value)
-    //this.enterAccessiBilityValue= function (value, accessiBility) {
-	//browser.executeScript("arguments[0].setAttribute('value', '" + value +"')", accessiBility);
     return this;
-    //}
     };
     this.enterReserved=function(value){
         inputBoxActions.type(reserved, value)
@@ -74,15 +86,23 @@ module.exports=function(){
         buttonActions.click(alertOkButton)
         return this;
     }
-    this.disable_Section=function(){
+    this.disableValetSection=function(){
         buttonActions.click(disableSection)
         return this;
     }
     this.clickAlertDisable=function(){
         buttonActions.click(alertDisablebutton)
+        waitActions.wait();
+        // if(cancelDisableAlert.isPresent()) // validation with the cancel alert need  to check with alert if candition is not working
+        // {
+        //     buttonActions.click(cancelDisableAlert)
+        // }else{
+        //     return this;
+        // }
         return this;
     }
-    this.enable_Section=function(){
+    
+    this.enableValetSection=function(){
         buttonActions.click(enableSection)
         return this;
     }
@@ -90,12 +110,12 @@ module.exports=function(){
         buttonActions.click(alertEnablebutton)
         return this;
     }
-    this.delete_section=function(){
+    this.deleteValetSection=function(){
         buttonActions.click(deleteSection)
         return this;
     }
     this.clickAlertDelete=function(){
-        buttonActions.click(alertDeletebutton)
+        buttonActions.click(alertDeleteButton)
         return this;
     }
     
@@ -110,12 +130,51 @@ module.exports=function(){
         return this;
     }
     
-    //Parking spots validation
-    this.validnsParkingSpots= function(){
-       inputBoxActions.verifyValue(sidebarPrkingspots)
-       console.log(sidebarPrkingspots,": parking spots ")
+   
+    //Value hard coded and validating the parking spots
+    this.availableParkingSpots=function(){
+        availableSpots.getText().then(function(text) {
+            console.log("available spots : ",text);
+            expect(text).toEqual("2");  
+          });
+    return this; 
+   }
+
+   //accessbility spots validation
+   this.accessiBilityParkingSpots=function(){
+    accessibilitySpots.getText().then(function(text) {
+        console.log("accessibility parking spots : ",text);
+        expect(text).toEqual("5");  
+      });
        return this;
-    }
+   }
+
+   //Reserved Spots validation
+   this.reservedParkingSpots=function(){
+    reservedSpots.getText().then(function(text) {
+        console.log("Reserved parking spots : ",text);
+        expect(text).toEqual("3");  
+      });
+       return this;
+   }
+
+   //Section parking spots validation
+   this.parkingSpotsValidation=function(){
+    sectionDetailsParkingSpots.getAttribute('value').then(function(text) {
+        console.log("Section details parking spots : ",text);
+        expect(text).toEqual("10");  
+      });  
+    return this;
+   }
+
+   this.valetSectionParkingSpotsCount=function(){
+    var rows = element.all(by.xpath("//ion-col[@class='col_padding ng-star-inserted md hydrated']"));
+    rows.count().then(function(count){
+        expect(count).toEqual(10);
+        console.log("valet section count : ",count);
+    });
+  return this;
+}
 
     //Create valte section flow by calling value
     this.valetSection=function(sectionName ,sectionCode,parkingSpots,accessiBility,reserved){
@@ -141,27 +200,27 @@ module.exports=function(){
 
     // valet UpdateSection flow
     this.valetSectionUpdate=function(UpdateSectionName,UpdateSectionCode,updateParkingSpots,updateAccessiBility,updateReserved){
-        waitActions.waitForElementIsDisplayed();
+        waitActions.wait()
         this.enterSectionName(UpdateSectionName);
-        waitActions.waitForElementIsDisplayed();
+        waitActions.wait()
         this.enterCodeName(UpdateSectionCode);
-        waitActions.waitForElementIsDisplayed();
+        waitActions.wait()
         this.enterParkingSpots(updateParkingSpots)
-        waitActions.waitForElementIsDisplayed();
+        waitActions.wait()
         this.enterAccesBilityParkingSpots(updateAccessiBility)
-        waitActions.waitForElementIsDisplayed();
+        waitActions.wait()
         this.enterReserved(updateReserved)
-        waitActions.waitForElementIsDisplayed(); 
+        waitActions.wait()
         this.clickOnUpdateButton()
-        waitActions.waitForElementIsDisplayed();
+        waitActions.wait()
         this.clickAlertUpdateok()
-        waitActions.waitForElementIsDisplayed();
+        waitActions.wait()
     }
 
     //valet section disable
     this.valetSectionDisable=function(){
         waitActions.wait()
-        this.disable_Section()
+        this.disableValetSection()   
         waitActions.waitForElementIsDisplayed()
         this.clickAlertDisable()
         waitActions.wait()
@@ -169,7 +228,7 @@ module.exports=function(){
 
     //valet section Enable
     this.valetSectionEnable=function(){
-        this.enable_Section()
+        this.enableValetSection()
         waitActions.waitForElementIsDisplayed()
         this.clickAlertEnable()
         waitActions.wait()
@@ -178,15 +237,25 @@ module.exports=function(){
     //valet section delete
     this.valetSectionDelete=function(){
         waitActions.wait()
-        this.delete_section();
+        this.deleteValetSection();
         waitActions.waitForElementIsDisplayed()
         this.clickAlertDelete();
     } 
-
-    // //Validation parking spots
-    // this.validationSpots=function(sidebarPrkingspots){
-    //     waitActions.wait()
-    //     this.validnsParkingSpots(sidebarPrkingspots)
-        
-    // }
+    
+    //Valet parking spots validation
+    this.ValetParkingSpotsValidation=function(){
+        waitActions.wait()
+        waitActions.wait()
+        this.availableParkingSpots()
+        waitActions.wait()
+        this.accessiBilityParkingSpots()
+        waitActions.wait()
+        this.reservedParkingSpots()
+        waitActions.wait()
+        this.parkingSpotsValidation()
+        waitActions.wait()
+        this.valetSectionParkingSpotsCount()
+        waitActions.wait()
+    }
+  
 }

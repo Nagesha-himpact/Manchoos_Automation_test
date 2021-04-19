@@ -4,29 +4,31 @@ const { buildDriverProvider } = require('protractor/built/driverProviders');
 module.exports = function () {
     'use strict'
 
+     //import required actions and create object
     var objRepo = require('../resources/objectRepository.json');
     var objLocator = new utils.objectLocator();
     var buttonActions = new commons.buttonActions();
     var inputBoxActions = new commons.inputBoxActions();
     var waitActions = new commons.waitActions();
 
+    //Add-ons page objects locators
     var headerAddOns = objLocator.findLocator(objRepo.addOns.headerAddOns)
-    var addplusIcon = objLocator.findLocator(objRepo.addOns.addplusIcon)
+    var addOnsAddPlusIcon = objLocator.findLocator(objRepo.addOns.addOnsAddPlusIcon)
     var addOnsSelectAll = objLocator.findLocator(objRepo.addOns.addOnsSelectAll)
-    var saveBtn = objLocator.findLocator(objRepo.addOns.saveBtn)
-    var cancelBtn = objLocator.findLocator(objRepo.addOns.cancelBtn)
+    var saveButton = objLocator.findLocator(objRepo.addOns.saveButton)
+    var cancelButton = objLocator.findLocator(objRepo.addOns.cancelButton)
     var editIcon = objLocator.findLocator(objRepo.addOns.editIcon)
-    var updateBtn = objLocator.findLocator(objRepo.addOns.updateBtn)
+    var updateButton = objLocator.findLocator(objRepo.addOns.updateButton)
     var notInTheList = objLocator.findLocator(objRepo.addOns.notInTheList)
     var customAddonsName = objLocator.findLocator(objRepo.addOns.customAddonsName)
-    var addOptionBtn=objLocator.findLocator(objRepo.addOns.addOptionBtn)
+    var addOptionButton=objLocator.findLocator(objRepo.addOns.addOptionButton)
     var optionName = objLocator.findLocator(objRepo.addOns.optionName)
     var price = objLocator.findLocator(objRepo.addOns.price)
     var customSave = objLocator.findLocator(objRepo.addOns.customSave)
     var customCheckBox = objLocator.findLocator(objRepo.addOns.customCheckBox)
-    var editBtn = objLocator.findLocator(objRepo.addOns.editBtn)
-    var deleteBtn = objLocator.findLocator(objRepo.addOns.deleteBtn)
-    var updateCustomBtn=objLocator.findLocator(objRepo.addOns.updateCustomBtn)
+    var editButton = objLocator.findLocator(objRepo.addOns.editButton)
+    var deleteButton = objLocator.findLocator(objRepo.addOns.deleteButton)
+    var updateCustomButton=objLocator.findLocator(objRepo.addOns.updateCustomButton)
 
     this.addOnsPage = function (path) {
         if (typeof path === 'undefined') {
@@ -43,7 +45,7 @@ module.exports = function () {
         return this;
     }
     this.clickOnAddOnsPlusIcon=function(){
-        buttonActions.click(addplusIcon)
+        buttonActions.click(addOnsAddPlusIcon)
         return this;
     }
     this.selectAllAddOns=function(){
@@ -51,11 +53,11 @@ module.exports = function () {
         return this;
     }
     this.clickOnSaveBtn=function(){
-        buttonActions.click(saveBtn)
+        buttonActions.click(saveButton)
         return this;
     }
     this.clickOnCancelBtn=function(){
-        buttonActions.click(cancelBtn)
+        buttonActions.click(cancelButton)
         return this;
     }
     this.clickonEditBtn=function(){
@@ -63,7 +65,7 @@ module.exports = function () {
         return this;
     }
     this.clickOnUpdateBtn=function(){
-        buttonActions.click(updateBtn)
+        buttonActions.click(updateButton)
         return this;
     }
     this.clickOnNotInTheList=function(){
@@ -75,7 +77,7 @@ module.exports = function () {
         return this;
     }
     this.clickOnAddOptionBtn=function(){
-       buttonActions.click(addOptionBtn)
+       buttonActions.click(addOptionButton)
         return this;
     }
     this.enterCustomOptionName=function(value){
@@ -95,15 +97,15 @@ module.exports = function () {
         return this;
     }
     this.clickOnCustomEditBtn=function(){
-        buttonActions.click(editBtn)
+        buttonActions.click(editButton)
         return this;
     }
     this.clickOnCustomUpdateBtn=function(){
-        buttonActions.click(updateCustomBtn)
+        buttonActions.click(updateCustomButton)
         return this;
     }
     this.clickOnDeleteBtn=function(){
-        buttonActions.click(deleteBtn)
+        buttonActions.click(deleteButton)
         return this;
     }
     

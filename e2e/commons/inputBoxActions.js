@@ -48,18 +48,16 @@ module.exports = function () {
             });
         }
     };
-    // //
-    // this.verifyValue = function (element, value) {
-    //     if (typeof element !== 'undefined') {
-    //         element.isDisplayed().then(function () {
-    //             element.isEnabled().then(function () {
-    //                 if (typeof value !== 'undefined') {
-                        
-    //                 }
-    //                 return actualValue;
-    //             });
-    //         });
-    //     }
-    // };
-};
 
+    // this.getelements = function(element, option) {
+    //     if(typeof element != 'undefined') {
+    //         switch(option){
+    //         case  "elements" : sampleElements = ElementArrayFinder=element.all();
+    //         break;
+    //         case  "Text": sampleElements = ElementArrayFinder=element.all().getText();
+    //         break;
+    //         }
+    //         return sampleElements;
+    //     }
+    // }
+};

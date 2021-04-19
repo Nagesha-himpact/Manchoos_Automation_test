@@ -11,11 +11,13 @@ describe('Create timings and calendar ',function(){
     var dashBoardPage=new pages.dashBoardPage();
     var timingsCalendarPage=new pages.timingsCalendarPage()
 
-    it("Create timings and Calendar Availability",function(){
+    it("Timings & Calendar Create restaurant Availability food",function(){
         loginPage.loginPage(testData.manchoos.baseUrl)
         loginPage.login(testData.credentials.userName,testData.credentials.passWord)
         leftNavigationPage.navigateToRestaurantProfile()
-        timingsCalendarPage.createTimgsCalendar(testData.timingsCalendar.breakFast)
-        dashBoardPage.logout()
+        timingsCalendarPage.createTimgsCalendar()
+
+        //dashBoardPage.logout()
     })
+         
 })
