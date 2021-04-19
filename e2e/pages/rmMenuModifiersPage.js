@@ -3,35 +3,42 @@ const { browser } = require('protractor');
 module.exports = function () {
     'use strict'
 
+    //import required actions and create object
     var objRepo = require('../resources/objectRepository.json');
     var objLocator = new utils.objectLocator();
     var buttonActions = new commons.buttonActions();
     var waitActions = new commons.waitActions();
     var inputBoxActions = new commons.inputBoxActions();
 
-    //modifiers page objects 
+    //modifiers page objects locators
     var headerModifiers = objLocator.findLocator(objRepo.modifiers.headerModifiers)
     var addModifiers = objLocator.findLocator(objRepo.modifiers.addModifiers)
     var selectAll = objLocator.findLocator(objRepo.modifiers.selectAll)
     //var selectAllModifiers=objLocator.findLocator(objRepo.modifiers.selectAllModifiers) (more then one element need to get for code waiting)
-
-    var saveBtn = objLocator.findLocator(objRepo.modifiers.saveBtn)
-    var cancelBtn = objLocator.findLocator(objRepo.modifiers.cancelBtn)
+    var saveButton = objLocator.findLocator(objRepo.modifiers.saveButton)
+    var cancelButton = objLocator.findLocator(objRepo.modifiers.cancelButton)
     var editIcon=objLocator.findLocator(objRepo.modifiers.editIcon)
-    var updateBtn=objLocator.findLocator(objRepo.modifiers.updateBtn)
+    var updateButton=objLocator.findLocator(objRepo.modifiers.updateButton)
     var modifiersNotIntheList = objLocator.findLocator(objRepo.modifiers.modifiersNotIntheList)
-    var customModifiers = objLocator.findLocator(objRepo.modifiers.customModifiers)
+    var addCustomModifiersName = objLocator.findLocator(objRepo.modifiers.addCustomModifiersName)
     var addOption = objLocator.findLocator(objRepo.modifiers.addOption)
     var optionName = objLocator.findLocator(objRepo.modifiers.optionName)
-    var customSaveBtn = objLocator.findLocator(objRepo.modifiers.customSaveBtn)
+    var customSaveButton = objLocator.findLocator(objRepo.modifiers.customSaveButton)
     var customModifiersList=objLocator.findLocator(objRepo.modifiers.customModifiersList)
-    var editBtn=objLocator.findLocator(objRepo.modifiers.editBtn)
-    var deleteBtn=objLocator.findLocator(objRepo.modifiers.deleteBtn)
+    var editButton=objLocator.findLocator(objRepo.modifiers.editButton)
+    var updateModifierAlertButton=objLocator.findLocator(objRepo.modifiers.updateModifierAlertButton)
+    var deleteButton=objLocator.findLocator(objRepo.modifiers.deleteButton)
 
-    //Sub modifiers Elements path
+    //Sub modifiers locators 
     var addSubModifiers=objLocator.findLocator(objRepo.subModifiers.addSubModifiers)
-    var sbmAddSubMdfrBtn=objLocator.findLocator(objRepo.subModifiers.sbmAddSubMdfrBtn)
-   
+    var SubModifiersSelectAll=objLocator.findLocator(objRepo.subModifiers.SubModifiersSelectAll)
+    var alertAddSuBModifierBtn=objLocator.findLocator(objRepo.subModifiers.alertAddSuBModifierBtn)
+    var updateAlertSubModifierBtn=objLocator.findLocator(objRepo.subModifiers.updateAlertSubModifierBtn)
+    var addCustomSubModifiersName=objLocator.findLocator(objRepo.subModifiers.addCustomSubModifiersName)
+    var SubModifieroptionName=objLocator.findLocator(objRepo.subModifiers.SubModifieroptionName)
+    var editCustomSubModifiers=objLocator.findLocator(objRepo.subModifiers.editCustomSubModifiers)
+    var editSubModifierOptionName=objLocator.findLocator(objRepo.subModifiers.editSubModifierOptionName)
+
 
     this.rmMenuModifiersPage = function (path) {
         if (typeof path === 'undefined') {
@@ -60,11 +67,11 @@ module.exports = function () {
     }
 
     this.clickOnSaveBtn = function () {
-        buttonActions.click(saveBtn)
+        buttonActions.click(saveButton)
         return this;
     }
     this.clickOnCancelBtn = function () {
-        buttonActions.click(cancelBtn)
+        buttonActions.click(cancelButton)
         return this;
     }
     this.clickOnEditIcon=function(){
@@ -72,7 +79,7 @@ module.exports = function () {
         return this;
     }
     this.clickOnUpdateBtn=function(){
-        buttonActions.click(updateBtn)
+        buttonActions.click(updateButton)
         return this;
     }
 
@@ -82,7 +89,7 @@ module.exports = function () {
         return this;
     }
     this.enterCustomModifiersName = function (value) {
-        inputBoxActions.type(customModifiers, value)
+        inputBoxActions.type(addCustomModifiersName, value)
         return this;
     }
     this.clickOnAddOption = function () {
@@ -94,20 +101,26 @@ module.exports = function () {
         return this;
     }
     this.clickOnCustomSaveBtn = function () {
-        buttonActions.click(customSaveBtn)
+        buttonActions.click(customSaveButton)
         return this;
     }
+
     //custom Modifiers edit flow
     this.clickOnCustoMmdfrsCheckBox=function(){
         buttonActions.click(customModifiersList)
         return this;
     }
     this.clickOnEditBtn=function(){
-       buttonActions.click(editBtn)
+       buttonActions.click(editButton)
+        return this;
+    }
+
+    this.updateModifierAlert=function(){
+        buttonActions.click(updateModifierAlertButton)
         return this;
     }
     this.clickOnDeleteBtn=function(){
-        buttonActions.click(deleteBtn)
+        buttonActions.click(deleteButton)
         return this;
     }
     
@@ -117,11 +130,37 @@ module.exports = function () {
         return this;
     }
     this.SaveSubModifiers=function(){
-        buttonActions.click(sbmAddSubMdfrBtn)
+        buttonActions.click(SubModifiersSelectAll)
         return this;
     }
-    
-    //function call reusablity
+    this.alertAddSubModifiersButton=function(){
+        buttonActions.click(alertAddSuBModifierBtn)
+        return this;
+    }
+    this.updateAlertSubModifierButton=function(){
+        buttonActions.click(updateAlertSubModifierBtn)
+        return this;
+    }
+
+    //Custom Sub Modifier 
+    this.enterCustomSubModifiersName = function (value) {
+        inputBoxActions.type(addCustomSubModifiersName, value)
+        return this;
+    }
+    this.enterSubOptionName = function (value) {
+        inputBoxActions.type(SubModifieroptionName, value)
+        return this;
+    }
+    this.editCustomSubModifier=function(value){
+        inputBoxActions.type(editCustomSubModifiers,value)
+        return this;
+    }
+    this.editCustomSubModifierOption=function(value){
+        inputBoxActions.type(editSubModifierOptionName,value)
+        return this;
+    }
+
+    //Add Modifiers flow (function call reusablity)
     this.createModifiers = function () {
         waitActions.wait()
         this.clickOnHedaerModifiers()
@@ -142,29 +181,32 @@ module.exports = function () {
         this.clickOnUpdateBtn()
         waitActions.wait()
         waitActions.wait()
+        waitActions.wait()
     }
 
-    //Create custom Modifiers
-    this.createCustomModifiers = function (customModifiers,optionName) {
+    //Create custom Modifiers flow
+    this.createCustomModifiers = function (addCustomModifiersName,optionName) {
+        waitActions.wait()
         waitActions.wait()
         this.clickOnHedaerModifiers()
-        waitActions.waitForElementIsDisplayed()
+        waitActions.wait()
         this.clickOnAddModifiers()
-        waitActions.waitForElementIsDisplayed()
+        waitActions.wait()
         this.clickOnNotIntheList()
-        waitActions.waitForElementIsDisplayed()
-        this.enterCustomModifiersName(customModifiers)
-        waitActions.waitForElementIsDisplayed()
+        waitActions.wait()
+        this.enterCustomModifiersName(addCustomModifiersName)
+        waitActions.wait()
         this.clickOnAddOption()
-        waitActions.waitForElementIsDisplayed()
+        waitActions.wait()
         this.enterOptionName(optionName)
         waitActions.wait()
         this.clickOnCustomSaveBtn()
         waitActions.wait()
+        waitActions.wait()
     }
 
     //Custom Modifiers Edit and delete flow
-    this.editCustomModifiers=function(editCustomModifiers){
+    this.editCustomModifiers=function(editCustomModifiers,editOptionName){
         waitActions.wait()
         this.clickOnHedaerModifiers()
         waitActions.waitForElementIsDisplayed()
@@ -177,9 +219,10 @@ module.exports = function () {
         this.enterCustomModifiersName(editCustomModifiers)
         waitActions.waitForElementIsDisplayed()
         this.clickOnAddOption()
-        // waitActions.wait()
-        // this.enterOptionName(optionName)
-        this.clickOnCustomSaveBtn()
+        waitActions.wait()
+        this.enterOptionName(editOptionName)
+        waitActions.wait()
+        this.updateModifierAlert()
         waitActions.wait()
         this.clickOnCustoMmdfrsCheckBox()
         waitActions.wait()
@@ -188,7 +231,7 @@ module.exports = function () {
         waitActions.wait()
     }
    
-    //Create Sub modifiers 
+    //Add Sub modifiers 
     this.createSubModifiers=function(){
         waitActions.wait()
         this.clickOnHedaerModifiers()
@@ -201,49 +244,53 @@ module.exports = function () {
         waitActions.wait()
         waitActions.wait()
         this.clickOnEditIcon()
-        waitActions.waitForElementIsDisplayed()
+        waitActions.wait()
         this.clickOnSelectAll()
+        waitActions.wait()
         waitActions.wait()
         this.clickOnUpdateBtn()
         waitActions.wait()
         waitActions.wait()
     }
-    this.createCustomSubModifiers = function (customModifiers,optionName) {
+
+    // Create custom Submodifiers flow
+    this.createCustomSubModifiers = function (addCustomSubModifiersName,SubModifieroptionName) {
         waitActions.wait()
         this.clickOnHedaerModifiers()
         waitActions.waitForElementIsDisplayed()
         this.clickOnAddSubModifiersIcon()
-        waitActions.waitForElementIsDisplayed()
-        this.clickOnNotIntheList()
-        waitActions.waitForElementIsDisplayed()
-        this.enterCustomModifiersName(customModifiers)
-        waitActions.waitForElementIsDisplayed()
-        this.clickOnAddOption()
-        waitActions.waitForElementIsDisplayed()
-        this.enterOptionName(optionName)
         waitActions.wait()
-        this.SaveSubModifiers()
+        this.clickOnNotIntheList()
+        waitActions.wait()
+        this.enterCustomSubModifiersName(addCustomSubModifiersName)
+        waitActions.wait()
+        this.clickOnAddOption()
+        waitActions.wait()
+        this.enterSubOptionName(SubModifieroptionName)
+        waitActions.wait()
+        this.alertAddSubModifiersButton()
         waitActions.wait()
         waitActions.wait()
     }
 
-    //Custom Modifiers Edit and delete flow
-    this.editCustomSubModifiers=function(editCustomModifiers){
+    //Update Custom subModifiers by Edit and delete functions
+    this.editCustomSubModifiers=function(editCustomSubModifiers,editSubModifierOptionName){
         waitActions.wait()
         this.clickOnHedaerModifiers()
-        waitActions.waitForElementIsDisplayed()
+        waitActions.wait()
         this.clickOnAddSubModifiersIcon()
-        waitActions.waitForElementIsDisplayed()
+        waitActions.wait()
         this.clickOnCustoMmdfrsCheckBox()
-        waitActions.waitForElementIsDisplayed()
+        waitActions.wait()
         this.clickOnEditBtn()
-        waitActions.waitForElementIsDisplayed()
-        this.enterCustomModifiersName(editCustomModifiers)
-        waitActions.waitForElementIsDisplayed()
+        waitActions.wait()
+        this.editCustomSubModifier(editCustomSubModifiers)
+        waitActions.wait()
         this.clickOnAddOption()
-        // waitActions.wait()
-        // this.enterOptionName(optionName)
-        this.SaveSubModifiers()
+        waitActions.wait()
+        this.editCustomSubModifierOption(editSubModifierOptionName)
+        waitActions.wait()
+        this.updateAlertSubModifierButton()
         waitActions.wait()
         this.clickOnCustoMmdfrsCheckBox()
         waitActions.wait()

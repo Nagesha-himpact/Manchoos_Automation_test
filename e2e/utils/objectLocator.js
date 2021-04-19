@@ -3,9 +3,10 @@ module.exports = function () {
     var webElement = null;
 
     //find locator using provided locator type and locator value
-    this.findLocator = function (locator, value) {
+    this.findLocator = function (locator, value, option) {
         var locatorType = locator[0];
         var locatorValue = locator[1];
+        var locatorText= locator[2];
         if (typeof locatorType !== 'undefined') {
             if (locatorValue.includes('#REPLACE#')) {
                 locatorValue = locatorValue.replace('#REPLACE#', value);

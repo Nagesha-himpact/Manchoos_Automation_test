@@ -9,14 +9,14 @@
   "valet":{
     "sectionName" : "Out door",
     "sectionCode" :"O9",
-    "parkingSpots" : "20",
-    "accessiBility" : "10",
-    "reserved" : "10",
+    "parkingSpots" : "30",
+    "accessiBility" : "0",
+    "reserved" : "0",
     "UpdateSectionName" : "Out door1",
     "UpdateSectionCode" : "08",
-    "updateParkingSpots" : "30",
-    "updateAccessiBility" : "0",
-    "updateReserved" : "0"
+    "updateParkingSpots" : "10",
+    "updateAccessiBility" : "5",
+    "updateReserved" : "3"
   },
   "dineIn" :{
     "sectionName" : "Ground Floor",
@@ -30,10 +30,16 @@
     "breakFast" : "BreakFast"
   },
   "modifiers" : {
-    "customModifiers" :"break Fast",
+    "addCustomModifiersName" :"Regular Pizza",
     "optionName" : "morning BreakFast",
-    "editCustomModifiers" : "Lunch",
+    "editCustomModifiers" : "Small Pizza",
     "editOptionName" : "after noon lunch"
+  },
+  "subModifiers" :{
+    "addCustomSubModifiersName" :"Medium Pizza",
+    "SubModifieroptionName" : "morning BreakFast",
+    "editCustomSubModifiers" : "Small Pizza",
+    "editSubModifierOptionName" : "after noon lunch"
   },
   "addOns" : {
     "customAddonsName" : "Fonta",

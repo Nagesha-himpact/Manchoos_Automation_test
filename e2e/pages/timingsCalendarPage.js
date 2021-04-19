@@ -5,6 +5,7 @@ const moment= require('moment')
 module.exports = function () {
     'use strict'
 
+    //import required actions and create object
     var objRepo = require('../resources/objectRepository.json');
     var objLocator = new utils.objectLocator();
     var buttonActions = new commons.buttonActions();
@@ -12,11 +13,12 @@ module.exports = function () {
     var waitActions = new commons.waitActions();
     var mouseActions=new commons.mouseActions();
 
-    var tmngsCalendar = objLocator.findLocator(objRepo.timingsCalendarPage.tmngsCalendar);
+    //create Resturant Availability of Menu items based on timings(Breakfast, lunch and dinner)
+    var timingsCalendarButton = objLocator.findLocator(objRepo.timingsCalendarPage.timingsCalendarButton);
     var availability=objLocator.findLocator(objRepo.timingsCalendarPage.availability);
     var addAvailabilty=objLocator.findLocator(objRepo.timingsCalendarPage.addAvailabilty)
-    var addBreakFast=objLocator.findLocator(objRepo.timingsCalendarPage.addBreakFast);
-    var radioBtnClick=objLocator.findLocator(objRepo.timingsCalendarPage.radioBtnClick);
+    var EnterSectionName=objLocator.findLocator(objRepo.timingsCalendarPage.EnterSectionName);
+    var BreakFastradioBtnClick=objLocator.findLocator(objRepo.timingsCalendarPage.BreakFastradioBtnClick);
     var selectAllDaysOfWeek=objLocator.findLocator(objRepo.timingsCalendarPage.selectAllDaysOfWeek);
     var selectMonDay=objLocator.findLocator(objRepo.timingsCalendarPage.selectMonDay);
     var selectTueDay=objLocator.findLocator(objRepo.timingsCalendarPage.selectTueDay);
@@ -39,23 +41,32 @@ module.exports = function () {
     var selectToDone=objLocator.findLocator(objRepo.timingsCalendarPage.selectToDone);
     var holiday=objLocator.findLocator(objRepo.timingsCalendarPage.holiday);
 
-    this.timingsCalendarPage= function (path) {
+    
+    this.timingsCalendarPage=function(path) {
         if (typeof path === 'undefined') {
             path = '';
         }
         browser.get(path)
         return this;
     }
-   
+
    // var  minDate = moment().format('YYYY');
    // var  maxDate = moment().add(3, 'y').format('YYYY');
    // To set current date as today
    // var  myDate = moment().toDate();
    // console.log(" :min date :" +minDate +": max date : "+ maxDate +  " :mydate setting :" ,myDate)
    
+// moment().format('MMMM Do YYYY, h:mm:ss a');
+//   var hour=moment().format('h');
+//   var Minits=moment().format('mm');
+//   var sec=moment().format('ss');
+//   var alm=moment().format('a');
+
+  //console.log(hour+": today hour "+Minits+" :today minits " +sec+" :Today seconds :"+alm+" :AM or PM  :")
+
     //create Avaliability
     this.clickOnTimingsCalendar=function(){
-        buttonActions.click(tmngsCalendar)
+        buttonActions.click(timingsCalendarButton)
         return this;
     }
     this.clickOnAvailability=function(){
@@ -71,11 +82,11 @@ module.exports = function () {
         return this;
     }
     this.enterSeactionName=function(value){
-        inputBoxActions.type(addBreakFast,value)
+        inputBoxActions.type(EnterSectionName,value)
         return this;
     }
     this.clickOnRadioButton=function(){
-        buttonActions.click(radioBtnClick)
+        buttonActions.click(BreakFastradioBtnClick)
         return this;
     }
     this.clickToggoleButton=function(){
@@ -115,28 +126,21 @@ module.exports = function () {
         return this;
     }
     this.clickOnFromTime=function(){
-        buttonActions.click(fromTime)
+        browser.executeScript("document.getElementsByName('anewv_starttime').setAttribute('name','1:00')")
+        //document.getElementsByName('message-to-send')[0].setAttribute('type', 'text')
+        //browser.executeScript("document.getElementsByName('anewv_starttime')[0].value='20 00'");
         return this;
     }
     this.chooseHours=function(){
-        // var hour = moment().format("HH"); // note the extra Y in YYYY
-        // console.log("Seconds : ",hour);
-        // if(hour === selectFromHours){
-        //     browser.executeScript("arguments[0].click();", selectFromHours);
-        // }else if(hour <=selectFromHours){
-        //     browser.actions().mouseUp(selectFromHours.getWebElement()).perform()
-        // }
-        // else if(hour >=selectFromHours) {
-        //     browser.actions().mouseDown(selectFromHours.getWebElement()).perform()
-        // }
-       
-        return this;
+       browser.sleep(2000)
+       browser.executeScript("arguments[0].click()",selectFromHours)   
+       return this;
     }
      
+    
     this.chooseMunits=function(){
-            browser.executeScript("arguments[0].scrollIntoView();", selectFromMunits.getWebElement());
-            browser.sleep(2000)
-            browser.executeScript("arguments[0].click();", selectFromMunits);
+        //var Minits=moment().format('mm');
+        browser.executeScript("arguments[0].click()",selectFromMunits)
             return this;
         
     }
@@ -175,7 +179,7 @@ module.exports = function () {
     
     
     // Create Availability 
-    this.createTimgsCalendar=function(addBreakFast){
+    this.createTimgsCalendar=function(EnterSectionName){
         waitActions.wait()
         this.clickOnTimingsCalendar()
         waitActions.wait()
@@ -183,23 +187,23 @@ module.exports = function () {
         // waitActions.wait()
         this.clickOnAddAvailibility()
         waitActions.waitForElementIsDisplayed()
-        // this.enterSeactionName(addBreakFast)
+        // this.enterSeactionName(EnterSectionName)
         // waitActions.waitForElementIsDisplayed
         // this.clickOnRadioButton()
         // waitActions.waitForElementIsDisplayed()
         waitActions.wait()
         this.clickOnFromTime()
         waitActions.wait()
-        this.chooseHours()
+        //this.chooseHours()
+       // waitActions.wait()
+       // this.chooseMunits()
         waitActions.wait()
-        this.chooseMunits()
-        waitActions.wait()
-        this.choosePM()
-        waitActions.wait()
-        this.chooseAM()
-        waitActions.wait()
-        this.chooseDone()
-        waitActions.wait()
+       // this.choosePM()
+       // waitActions.wait()
+        //this.chooseAM()
+        //waitActions.wait()
+        //this.chooseDone()
+       // waitActions.wait()
         // this.chooseToTime()
         // waitActions.wait()
         // this.chooseToHours()
@@ -231,4 +235,20 @@ module.exports = function () {
         this.clickOnSave()
         waitActions.wait()
     }
+
+    
 }
+
+ // var hour = moment().format("HH"); // note the extra Y in YYYY
+        // console.log("Seconds : ",hour);
+        // if(hour === selectFromHours){
+        //     browser.executeScript("arguments[0].click();", selectFromHours);
+        // }else if(hour <=selectFromHours){
+        //     browser.actions().mouseUp(selectFromHours.getWebElement()).perform()
+        // }
+        // else if(hour >=selectFromHours) {
+        //     browser.actions().mouseDown(selectFromHours.getWebElement()).perform()
+        // }
+        //     browser.executeScript("arguments[0].scrollIntoView();", selectFromMunits.getWebElement());
+        //     browser.sleep(2000)
+        //     browser.executeScript("arguments[0].click();", selectFromMunits);

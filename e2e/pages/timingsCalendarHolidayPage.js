@@ -3,6 +3,7 @@ const { browser } = require('protractor');
 module.exports=function(){
 'use strict'
 
+//import required actions and create object
 var objRepo = require('../resources/objectRepository.json');
 var objLocator=new utils.objectLocator();
 var buttonActions=new commons.buttonActions();
@@ -10,14 +11,14 @@ var waitActions=new commons.waitActions();
 var inputBoxActions=new commons.inputBoxActions();
 
 //create Calendr holiday flow elements
-var clickAddHolidayBtn=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.clickAddHolidayBtn)
-var pongal=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.pongal)
-var republicDay=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.republicDay)
-var independenceDay=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.independenceDay)
-var mahaShavarathri=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.mahaShavarathri)
-var ganeshChaturthi=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.ganeshChaturthi)
-var dusera=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.dusera)
-var narakaChturdasi=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.narakaChturdasi)
+var clickAddHolidayButton=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.clickAddHolidayButton)
+var pongal=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.pongalCheckBox)
+var republicDayCheckBox=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.republicDayCheckBox)
+var independenceDayCheckBox=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.independenceDayCheckBox)
+var mahaShavarathriCheckBox=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.mahaShavarathriCheckBox)
+var ganeshChaturthiCheckBox=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.ganeshChaturthiCheckBox)
+var duseraCheckBox=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.duseraCheckBox)
+var narakaChturdasiCheckBox=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.narakaChturdasiCheckBox)
 var otherHolidayToggleSwitch=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.otherHolidayToggleSwitch)
 var fromDate=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.fromDate)
 var toDate=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.toDate)
@@ -25,6 +26,9 @@ var holidayMessage=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.holiday
 var cancelBtn=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.cancelBtn)
 var saveBtn=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.saveBtn)
 
+
+
+//Select Calendar Holiday flow
 this.timingsCalendarHolidayPage=function(path){
     if(typeof path === 'undefined'){
         path ='';
@@ -33,35 +37,35 @@ this.timingsCalendarHolidayPage=function(path){
     return this;
 }
 this.clickOnHolidayAddBtn=function(){
-    buttonActions.click(clickAddHolidayBtn)
+    buttonActions.click(clickAddHolidayButton)
     return this;
 }
 this.selectCheckBoxPongal=function(){
-    buttonActions.click(pongal)
+    buttonActions.click(pongalCheckBox)
     return this;
 }
 this.selectCheckBoxRepublicDay=function(){
-    buttonActions.click(republicDay)
+    buttonActions.click(republicDayCheckBox)
     return this;
 }
 this.selelctCheckBoxIndependenceDay=function(){
-    buttonActions.click(independenceDay)
+    buttonActions.click(independenceDayCheckBox)
     return this;
 }
 this.selectCheckBoxShivarathri=function(){
-    buttonActions.click(mahaShavarathri)
+    buttonActions.click(mahaShavarathriCheckBox)
     return this;
 }
 this.selectCheckBoxGaneshaFest=function(){
-buttonActions.click(ganeshChaturthi)
+buttonActions.click(ganeshChaturthiCheckBox)
     return this;
 }
 this.selectCheckBoxDusera=function(){
-    buttonActions.click(dusera)
+    buttonActions.click(duseraCheckBox)
     return this;
 }
 this.selectCheckBoxNarakaChturdasi=function(){
-    buttonActions.click(narakaChturdasi)
+    buttonActions.click(narakaChturdasiCheckBox)
     return this;
 }
 this.clickOnHolidayToggleSwitch=function(){
@@ -70,6 +74,7 @@ this.clickOnHolidayToggleSwitch=function(){
 }
 this.clickOnFromDate=function(){
     buttonActions.click(fromDate)
+   
     return this;
 }
 this.clickOnToDate=function(){
