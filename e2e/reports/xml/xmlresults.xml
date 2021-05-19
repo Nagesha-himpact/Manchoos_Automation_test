@@ -1,8 +1,84 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuites disabled="0" errors="0" failures="0" tests="3" time="84.989">
- <testsuite name="Dine in section &amp; table create flow" timestamp="2021-04-19T15:23:41" hostname="localhost" time="84.989" errors="0" tests="3" skipped="0" disabled="0" failures="0">
-  <testcase classname="Dine in section &amp; table create flow" name="Add Dine in section details and Create Dine In table" time="33.367" />
-  <testcase classname="Dine in section &amp; table create flow" name="Update Dine in section Details and Updated tables details" time="35.466" />
-  <testcase classname="Dine in section &amp; table create flow" name="Dine in section validation " time="16.152" />
+<testsuites disabled="0" errors="0" failures="4" tests="23" time="1089.489">
+ <testsuite name="Valet section create-update-disable-delete flow " timestamp="2021-05-19T15:36:15" hostname="localhost" time="114.136" errors="0" tests="4" skipped="0" disabled="0" failures="2">
+  <testcase classname="Valet section create-update-disable-delete flow " name="Create New Valet section-by adding Parking spots,Accessibility and reserved spots" time="30.274" />
+  <testcase classname="Valet section create-update-disable-delete flow " name="Valet section disable" time="59.568" />
+  <testcase classname="Valet section create-update-disable-delete flow " name="Update Valet section-by add or remove the Parking spots,Accessibility and reserved spots" time="13.254" />
+  <testcase classname="Valet section create-update-disable-delete flow " name="valet parking spots validation" time="11.035">
+   <failure type="toEqual" message="Expected &apos;0&apos; to equal &apos;2&apos;."><![CDATA[Error: Failed expectation
+    at C:\Manchoos_Automation_test\e2e\pages\valetPage.js:138:26
+    at C:\Users\user\AppData\Roaming\npm\node_modules\protractor\built\element.js:804:32
+    at ManagedPromise.invokeCallback_ (C:\Users\user\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (C:\Users\user\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (C:\Users\user\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at C:\Users\user\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2927:27
+    at C:\Users\user\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:668:7
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)]]>
+   </failure>
+   <failure type="toEqual" message="Expected &apos;7&apos; to equal &apos;5&apos;."><![CDATA[Error: Failed expectation
+    at C:\Manchoos_Automation_test\e2e\pages\valetPage.js:147:22
+    at C:\Users\user\AppData\Roaming\npm\node_modules\protractor\built\element.js:804:32
+    at ManagedPromise.invokeCallback_ (C:\Users\user\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (C:\Users\user\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (C:\Users\user\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at C:\Users\user\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2927:27
+    at C:\Users\user\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:668:7
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)]]>
+   </failure>
+  </testcase>
+ </testsuite>
+ <testsuite name="Dine in section &amp; table create flow" timestamp="2021-05-19T15:38:10" hostname="localhost" time="144.802" errors="0" tests="6" skipped="0" disabled="0" failures="0">
+  <testcase classname="Dine in section &amp; table create flow" name="Add Dine in section details and Create Dine In table" time="29.109" />
+  <testcase classname="Dine in section &amp; table create flow" name="Update Dine in section Details and Updated tables details" time="17.075" />
+  <testcase classname="Dine in section &amp; table create flow" name="Dine in section validation " time="12.128" />
+  <testcase classname="Dine in section &amp; table create flow" name="Dine In section disable-enable-delete" time="8.268" />
+  <testcase classname="Dine in section &amp; table create flow" name="dine in feature and seater filter" time="35.308" />
+  <testcase classname="Dine in section &amp; table create flow" name="dine in Seater disable-enable delete flow" time="42.911" />
+ </testsuite>
+ <testsuite name="Create timings and calendar " timestamp="2021-05-19T15:40:34" hostname="localhost" time="44.946" errors="0" tests="1" skipped="0" disabled="0" failures="0">
+  <testcase classname="Create timings and calendar " name="Timings &amp; Calendar Create restaurant Availability food" time="44.942" />
+ </testsuite>
+ <testsuite name="timings &amp; calendar holiday flow " timestamp="2021-05-19T15:41:19" hostname="localhost" time="58.67" errors="0" tests="2" skipped="0" disabled="0" failures="0">
+  <testcase classname="timings &amp; calendar holiday flow " name="select the calendar Holidays" time="23.791" />
+  <testcase classname="timings &amp; calendar holiday flow " name="Create other holiday flow " time="34.876" />
+ </testsuite>
+ <testsuite name="timings &amp; calendar holiday flow " timestamp="2021-05-19T15:42:18" hostname="localhost" time="41.677" errors="0" tests="1" skipped="0" disabled="0" failures="0">
+  <testcase classname="timings &amp; calendar holiday flow " name="timings and Calender Create Event flow" time="41.675" />
+ </testsuite>
+ <testsuite name="Add addons items &amp; update ,create custom add-ons options" timestamp="2021-05-19T15:43:00" hostname="localhost" time="69.696" errors="0" tests="2" skipped="0" disabled="0" failures="0">
+  <testcase classname="Add addons items &amp; update ,create custom add-ons options" name="RM profile Enter Administrative details" time="36.403" />
+  <testcase classname="Add addons items &amp; update ,create custom add-ons options" name="Rm profile Administrative details edit flow" time="33.291" />
+ </testsuite>
+ <testsuite name="Add mofiers and submodifiers" timestamp="2021-05-19T15:44:09" hostname="localhost" time="175.353" errors="0" tests="2" skipped="0" disabled="0" failures="0">
+  <testcase classname="Add mofiers and submodifiers" name="add modifiers " time="87.881" />
+  <testcase classname="Add mofiers and submodifiers" name="Create Sub-modifers flow" time="87.467" />
+ </testsuite>
+ <testsuite name="Add addons items &amp; update ,create custom add-ons options" timestamp="2021-05-19T15:47:05" hostname="localhost" time="89.88" errors="0" tests="1" skipped="0" disabled="0" failures="0">
+  <testcase classname="Add addons items &amp; update ,create custom add-ons options" name="Add Add 0ns options list" time="89.878" />
+ </testsuite>
+ <testsuite name="Menu Item add to Restaurant : " timestamp="2021-05-19T15:48:35" hostname="localhost" time="105.953" errors="0" tests="1" skipped="0" disabled="0" failures="0">
+  <testcase classname="Menu Item add to Restaurant : " name="Menu item ,cusine ,food ,sub food type &amp; item add to restaurant " time="105.949" />
+ </testsuite>
+ <testsuite name="custom item create ,edit ,delete flow : " timestamp="2021-05-19T15:50:21" hostname="localhost" time="96.775" errors="0" tests="1" skipped="0" disabled="0" failures="0">
+  <testcase classname="custom item create ,edit ,delete flow : " name="custom item create flow : " time="96.773" />
+ </testsuite>
+ <testsuite name="Restaurant Custom Item add flow " timestamp="2021-05-19T15:51:57" hostname="localhost" time="63.755" errors="0" tests="1" skipped="0" disabled="0" failures="2">
+  <testcase classname="Restaurant Custom Item add flow " name="Restaurant Custom Item add flow" time="63.752">
+   <failure type="exception" message="Error: ENOENT: no such file or directory, open &apos;C:\Manchoos_Automation_test\e2e\reports\chrome\screenshots\chrome-custom item create ,edit ,delete flow :  custom item create flow : .png&apos;"><![CDATA[Error: ENOENT: no such file or directory, open 'C:\Manchoos_Automation_test\e2e\reports\chrome\screenshots\chrome-custom item create ,edit ,delete flow :  custom item create flow : .png']]>
+   </failure>
+   <failure type="toBe" message="Expected 2 to be 1."><![CDATA[Error: Failed expectation
+    at C:\Manchoos_Automation_test\e2e\pages\customMenuPage.js:129:27
+    at ManagedPromise.invokeCallback_ (C:\Users\user\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (C:\Users\user\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (C:\Users\user\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at C:\Users\user\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2927:27
+    at C:\Users\user\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:668:7
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)]]>
+   </failure>
+  </testcase>
+ </testsuite>
+ <testsuite name="Combo Menu item add flow" timestamp="2021-05-19T15:53:01" hostname="localhost" time="83.846" errors="0" tests="1" skipped="0" disabled="0" failures="0">
+  <testcase classname="Combo Menu item add flow" name="Combo Menu create flow" time="83.844" />
  </testsuite>
 </testsuites>

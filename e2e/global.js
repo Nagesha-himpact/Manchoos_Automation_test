@@ -36,4 +36,10 @@
     global.pages.reMenuModifiersPage=require('./pages/rmMenuModifiersPage')
     global.pages.menuDashBoardPage=require('./pages/menuDashBoardPage')
     global.pages.addOnsPage=require('./pages/addOnsPage')
+    global.pages.menuItemPage=require('./pages/menuItemPage.js')
+    global.pages.customMenuPage=require('./pages/customMenuPage.js')
+    global.pages.comboMenuPage=require('./pages/comboMenuPage.js')
+    global.pages.menuCustomItemPage=require('./pages/menuCustomItemPage.js')
+    global.pages.rmProfileAdminiStrativePage=require("./pages/rmProfileAdminiStrativePage.js")
+    global.pages.timingsClndrEventPage=require("./pages/timingsClndrEventPage.js")
 }());

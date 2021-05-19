@@ -12,7 +12,7 @@ var inputBoxActions=new commons.inputBoxActions();
 
 //create Calendr holiday flow elements
 var clickAddHolidayButton=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.clickAddHolidayButton)
-var pongal=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.pongalCheckBox)
+var pongalCheckBox=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.pongalCheckBox)
 var republicDayCheckBox=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.republicDayCheckBox)
 var independenceDayCheckBox=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.independenceDayCheckBox)
 var mahaShavarathriCheckBox=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.mahaShavarathriCheckBox)
@@ -20,13 +20,12 @@ var ganeshChaturthiCheckBox=objLocator.findLocator(objRepo.tmgsCalndarHolidayPag
 var duseraCheckBox=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.duseraCheckBox)
 var narakaChturdasiCheckBox=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.narakaChturdasiCheckBox)
 var otherHolidayToggleSwitch=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.otherHolidayToggleSwitch)
-var fromDate=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.fromDate)
-var toDate=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.toDate)
 var holidayMessage=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.holidayMessage)
 var cancelBtn=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.cancelBtn)
 var saveBtn=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.saveBtn)
-
-
+var holidayRestaurant=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.holidayRestaurant)
+var otherHolidayDelete=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.otherHolidayDelete)
+var otherHolidayEnblDisble=objLocator.findLocator(objRepo.tmgsCalndarHolidayPage.otherHolidayEnblDisble)
 
 //Select Calendar Holiday flow
 this.timingsCalendarHolidayPage=function(path){
@@ -73,19 +72,18 @@ this.clickOnHolidayToggleSwitch=function(){
     return this;
 }
 this.clickOnFromDate=function(){
-    buttonActions.click(fromDate)
-   
+    browser.executeScript("document.getElementsByName('holiday_from_data')[0].value='05/21/2021'")
     return this;
 }
 this.clickOnToDate=function(){
-    buttonActions.click(toDate)
+    browser.executeScript("document.getElementsByName('holiday_to_data')[0].value='05/26/2021'")
     return this;
 }
-this.enterHolidayMessage=function(){
-    inputBoxActions.type(holidayMessage)
+this.enterHolidayMessage=function(value){
+    inputBoxActions.type(holidayMessage,value)
     return this;
 }
-this.clickOnSabeBtn=function(){
+this.clickOnSaveBtn=function(){
     buttonActions.click(saveBtn)
     return this;
 }
@@ -93,7 +91,18 @@ this.clickOnCancelBtn=function(){
     buttonActions.click(cancelBtn)
     return this;
 }
-
+this.clickOnHolidayRestaurant=function(){
+    buttonActions.click(holidayRestaurant)
+    return this;
+}
+this.clickOnOtherHolidayDelete=function(){
+    buttonActions.click(otherHolidayDelete)
+    return this;
+}
+this.clickOnOtherHolidayEnblDisble=function(){
+    buttonActions.click(otherHolidayEnblDisble)
+    return this;
+}
 //create the Holidayflow
 this.createHoliday=function(){
     waitActions.wait()
@@ -113,12 +122,35 @@ this.createHoliday=function(){
     waitActions.waitForElementIsDisplayed()
     this.selectCheckBoxNarakaChturdasi()
     waitActions.waitForElementIsDisplayed()
-    this.clickOnSabeBtn()
+    this.clickOnSaveBtn()
+    waitActions.wait()
     waitActions.wait()
 }
 
+this.removeHoliday=function(){
+    waitActions.waitForElementIsDisplayed()
+    this.clickOnHolidayAddBtn()
+    waitActions.wait()
+    waitActions.waitForElementIsDisplayed()
+    this.selectCheckBoxPongal()
+    waitActions.waitForElementIsDisplayed()
+    this.selectCheckBoxRepublicDay()
+    waitActions.waitForElementIsDisplayed()
+    this.selelctCheckBoxIndependenceDay()
+    waitActions.waitForElementIsDisplayed()
+    this.selectCheckBoxShivarathri()
+    waitActions.waitForElementIsDisplayed()
+    this.selectCheckBoxGaneshaFest()
+    waitActions.waitForElementIsDisplayed()
+    this.selectCheckBoxDusera()
+    waitActions.waitForElementIsDisplayed()
+    this.clickOnSaveBtn()
+    browser.sleep(7000) //signout button is not visible so given delay
+}
 //create other holiday flow
-this.createOtherHolidayFlow=function(){
+this.createOtherHolidayFlow=function(holidayMessage){
+    waitActions.wait()
+    this.clickOnHolidayAddBtn()
     waitActions.wait()
     this.clickOnHolidayToggleSwitch()
     waitActions.wait()
@@ -126,7 +158,17 @@ this.createOtherHolidayFlow=function(){
     waitActions.wait()
     this.clickOnToDate()
     waitActions.wait()
-    this.enterHolidayMessage()
+    this.enterHolidayMessage(holidayMessage)
     waitActions.wait()
+    this.clickOnSaveBtn()
+    waitActions.wait()
+    this.clickOnHolidayRestaurant()
+    waitActions.wait()
+    this.clickOnOtherHolidayEnblDisble()
+    waitActions.wait()
+    waitActions.wait()
+    waitActions.wait()
+    this.clickOnOtherHolidayDelete()
+    browser.sleep(7000) //signout button is not visible so given delay
 }
 }

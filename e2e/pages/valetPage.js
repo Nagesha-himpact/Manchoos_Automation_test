@@ -202,18 +202,19 @@ module.exports=function(){
     this.valetSectionUpdate=function(UpdateSectionName,UpdateSectionCode,updateParkingSpots,updateAccessiBility,updateReserved){
         waitActions.wait()
         this.enterSectionName(UpdateSectionName);
-        waitActions.wait()
+        waitActions.waitForElementIsDisplayed()
         this.enterCodeName(UpdateSectionCode);
-        waitActions.wait()
+        waitActions.waitForElementIsDisplayed()
         this.enterParkingSpots(updateParkingSpots)
-        waitActions.wait()
+        waitActions.waitForElementIsDisplayed()
         this.enterAccesBilityParkingSpots(updateAccessiBility)
-        waitActions.wait()
+        waitActions.waitForElementIsDisplayed()
         this.enterReserved(updateReserved)
-        waitActions.wait()
+        waitActions.waitForElementIsDisplayed()
         this.clickOnUpdateButton()
         waitActions.wait()
         this.clickAlertUpdateok()
+        waitActions.wait()
         waitActions.wait()
     }
 
@@ -245,15 +246,14 @@ module.exports=function(){
     //Valet parking spots validation
     this.ValetParkingSpotsValidation=function(){
         waitActions.wait()
-        waitActions.wait()
         this.availableParkingSpots()
-        waitActions.wait()
+        waitActions.waitForElementIsDisplayed()
         this.accessiBilityParkingSpots()
-        waitActions.wait()
+        waitActions.waitForElementIsDisplayed()
         this.reservedParkingSpots()
-        waitActions.wait()
+        waitActions.waitForElementIsDisplayed()
         this.parkingSpotsValidation()
-        waitActions.wait()
+        waitActions.waitForElementIsDisplayed()
         this.valetSectionParkingSpotsCount()
         waitActions.wait()
     }

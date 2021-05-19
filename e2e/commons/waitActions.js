@@ -2,7 +2,7 @@ module.exports = function () {
 
     //wait till specified time
     this.wait = function (value) {
-        browser.sleep(value | 3000);
+        browser.sleep(value | 2000);
     };
 
     //wait for element is displayed

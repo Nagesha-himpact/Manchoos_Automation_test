@@ -31,25 +31,25 @@ describe("Dine in section & table create flow",function(){
         dineInPage.dineInSectionValidation();
         dashBoardPage.logout();
     })
-            //  it("Dine In section disable-enable-delete",function(){
-    //      loginPage.loginPage(testData.manchoos.baseUrl);
-    //      loginPage.login(testData.credentials.userName,testData.credentials.passWord); 
-    //      leftNavigationPage.navigateToDineIn();
-    //      dineInPage.disableEnableDeleteSection()
-    //      dashBoardPage.logout();
-    //  })
-    //  it("dine in feature and seater filter",function(){
-    //      loginPage.loginPage(testData.manchoos.baseUrl)
-    //      loginPage.login(testData.credentials.userName,testData.credentials.passWord)
-    //      leftNavigationPage.navigateToDineIn();
-    //      dineInPage.featureAndSeaterFilter();
-    //      dashBoardPage.logout();
-    //  })
-    //  it("dine in Seater disable-enable delete flow",function(){
-    //      loginPage.loginPage(testData.manchoos.baseUrl)
-    //      loginPage.login(testData.credentials.userName,testData.credentials.passWord)
-    //      leftNavigationPage.navigateToDineIn();
-    //      dineInPage.dineInTableValidation()
-    //      dashBoardPage.logout();
-    //  })
+     it("Dine In section disable-enable-delete",function(){
+         loginPage.loginPage(testData.manchoos.baseUrl);
+         loginPage.login(testData.credentials.userName,testData.credentials.passWord); 
+         leftNavigationPage.navigateToDineIn();
+         dineInPage.disableEnableDeleteSection()
+         dashBoardPage.logout();
+     })
+     it("dine in feature and seater filter",function(){
+         loginPage.loginPage(testData.manchoos.baseUrl)
+         loginPage.login(testData.credentials.userName,testData.credentials.passWord)
+         leftNavigationPage.navigateToDineIn();
+         dineInPage.featureAndSeaterFilter();
+         dashBoardPage.logout();
+     })
+     it("dine in Seater disable-enable delete flow",function(){
+         loginPage.loginPage(testData.manchoos.baseUrl)
+         loginPage.login(testData.credentials.userName,testData.credentials.passWord)
+         leftNavigationPage.navigateToDineIn();
+         dineInPage.dineInTableValidation()
+         dashBoardPage.logout();
+     })
 });

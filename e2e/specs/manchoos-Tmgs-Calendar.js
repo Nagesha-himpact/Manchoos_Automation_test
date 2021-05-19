@@ -15,9 +15,8 @@ describe('Create timings and calendar ',function(){
         loginPage.loginPage(testData.manchoos.baseUrl)
         loginPage.login(testData.credentials.userName,testData.credentials.passWord)
         leftNavigationPage.navigateToRestaurantProfile()
-        timingsCalendarPage.createTimgsCalendar()
-
-        //dashBoardPage.logout()
-    })
-         
+        timingsCalendarPage.createTimgsCalendar(testData.timingsCalendar.breakFast)
+        timingsCalendarPage.availabelEditFlow()
+        dashBoardPage.logout()
+    })       
 })

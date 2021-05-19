@@ -11,11 +11,6 @@ describe('Valet section create-update-disable-delete flow ', function () {
     var valetPage = new pages.valetPage();
     var leftNavigationPage = new pages.leftNavigationPage();
 
-    // it('Login-Logout', function () {
-    //     loginPage.loginPage(testData.manchoos.baseUrl);
-    //     loginPage.login(testData.credentials.userName,testData.credentials.passWord );
-    //     dashBoardPage.logout();
-    // });
 
     //Valet create flow
     it('Create New Valet section-by adding Parking spots,Accessibility and reserved spots', function () {
@@ -32,35 +27,27 @@ describe('Valet section create-update-disable-delete flow ', function () {
         loginPage.login(testData.credentials.userName, testData.credentials.passWord);
         leftNavigationPage.navigateToValet()
         valetPage.valetSectionDisable()
+        valetPage.valetSectionEnable()
         dashBoardPage.logout();
     })
 
-    //valet section Enable
-    // it('Valet section Enable', function () {
-    //     loginPage.loginPage(testData.manchoos.baseUrl);
-    //     loginPage.login(testData.credentials.userName, testData.credentials.passWord);
-    //     leftNavigationPage.navigateToValet()
-    //     valetPage.valetSectionEnable()
-    //     dashBoardPage.logout();
-    // })
-    
     //Valet update flow
-    // it('Update Valet section-by add or remove the Parking spots,Accessibility and reserved spots', function () {
-    //     loginPage.loginPage(testData.manchoos.baseUrl);
-    //     loginPage.login(testData.credentials.userName, testData.credentials.passWord);
-    //     leftNavigationPage.navigateToValet();
-    //     valetPage.valetSectionUpdate(testData.valet.UpdateSectionName,testData.valet.UpdateSectionCode,testData.valet.updateParkingSpots, testData.valet.updateAccessiBility, testData.valet.updateReserved);
-    //     dashBoardPage.logout();
-    // })
+    it('Update Valet section-by add or remove the Parking spots,Accessibility and reserved spots', function () {
+        loginPage.loginPage(testData.manchoos.baseUrl);
+        loginPage.login(testData.credentials.userName, testData.credentials.passWord);
+        leftNavigationPage.navigateToValet();
+        valetPage.valetSectionUpdate(testData.valet.UpdateSectionName,testData.valet.UpdateSectionCode,testData.valet.updateParkingSpots, testData.valet.updateAccessiBility, testData.valet.updateReserved);
+        dashBoardPage.logout();
+    })
 
     //valet valet parking spots
-    // it('valet parking spots validation', function () {
-    //     loginPage.loginPage(testData.manchoos.baseUrl);
-    //     loginPage.login(testData.credentials.userName, testData.credentials.passWord);
-    //     leftNavigationPage.navigateToValet()
-    //     valetPage.ValetParkingSpotsValidation()
-    //     valetPage.valetSectionDelete()
-    //     dashBoardPage.logout();
-    // })    
+    it('valet parking spots validation', function () {
+        loginPage.loginPage(testData.manchoos.baseUrl);
+        loginPage.login(testData.credentials.userName, testData.credentials.passWord);
+        leftNavigationPage.navigateToValet()
+        valetPage.ValetParkingSpotsValidation()
+        valetPage.valetSectionDelete()
+        dashBoardPage.logout();
+    })    
 });
  

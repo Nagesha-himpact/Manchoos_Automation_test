@@ -28,8 +28,20 @@ module.exports = function () {
     var editButton=objLocator.findLocator(objRepo.modifiers.editButton)
     var updateModifierAlertButton=objLocator.findLocator(objRepo.modifiers.updateModifierAlertButton)
     var deleteButton=objLocator.findLocator(objRepo.modifiers.deleteButton)
+    
+    //dependency custom item flow 
+    var chooseModifierIdli=objLocator.findLocator(objRepo.modifiers.chooseModifierIdli)
+    var modifierIdli=objLocator.findLocator(objRepo.modifiers.modifierIdli)
+    var selectToggleSwitch=objLocator.findLocator(objRepo.modifiers.selectToggleSwitch)
+    var idliSaveBtn=objLocator.findLocator(objRepo.modifiers.idliSaveBtn)
+    
+    //Modifiers Validation
+    var chooseModifiersOption=objLocator.findLocator(objRepo.modifiers.chooseModifiersOption)
+    var ModifiersDashBoardItemName=objLocator.findLocator(objRepo.modifiers.ModifiersDashBoardItemName)
+    var customModifiresName=objLocator.findLocator(objRepo.modifiers.customModifiresName)
 
     //Sub modifiers locators 
+    var subModifiersEditBtn=objLocator.findLocator(objRepo.subModifiers.subModifiersEditBtn)
     var addSubModifiers=objLocator.findLocator(objRepo.subModifiers.addSubModifiers)
     var SubModifiersSelectAll=objLocator.findLocator(objRepo.subModifiers.SubModifiersSelectAll)
     var alertAddSuBModifierBtn=objLocator.findLocator(objRepo.subModifiers.alertAddSuBModifierBtn)
@@ -38,6 +50,13 @@ module.exports = function () {
     var SubModifieroptionName=objLocator.findLocator(objRepo.subModifiers.SubModifieroptionName)
     var editCustomSubModifiers=objLocator.findLocator(objRepo.subModifiers.editCustomSubModifiers)
     var editSubModifierOptionName=objLocator.findLocator(objRepo.subModifiers.editSubModifierOptionName)
+    var subModifiersDashBoardSmall=objLocator.findLocator(objRepo.subModifiers.subModifiersDashBoardSmall)
+    var chooseSubModifiersSmall=objLocator.findLocator(objRepo.subModifiers.chooseSubModifiersSmall)
+    var smallSelectAll=objLocator.findLocator(objRepo.subModifiers.smallSelectAll)
+    
+    //submodifers validation
+    var subModifiersOptionName=objLocator.findLocator(objRepo.subModifiers.subModifiersOptionName)
+    var customSubModifierValidation=objLocator.findLocator(objRepo.subModifiers.customSubModifierValidation)
 
 
     this.rmMenuModifiersPage = function (path) {
@@ -123,7 +142,44 @@ module.exports = function () {
         buttonActions.click(deleteButton)
         return this;
     }
-    
+    this.clickOnModifiersIdli=function(){
+        buttonActions.click(chooseModifierIdli)
+        return this;
+    }    
+    this.clickOnModifierDashBoadIdli=function(){
+        buttonActions.click(modifierIdli)
+        return this;
+    }
+    this.clickOnToggleSwitch=function(){
+        buttonActions.click(selectToggleSwitch)
+        return this;
+    }
+
+
+    //Modifiers validation
+    this.modifiersNameValidation=function(){
+        chooseModifiersOption.getText().then(function(text) {
+            console.log("Modifiers Name : ",text);
+            return this;
+    });
+    }
+this.ModifiersDashBoardGetItemName=function() {
+    ModifiersDashBoardItemName.getText().then(function(text1) {
+    console.log("Modifiers dashbord Name : ",text1);
+    expect("Half Plate").toEqual(text1);
+    return this;
+});
+}
+
+//custom modifires 
+this.customModifiersNameValidation=function(){
+    customModifiresName.getText().then(function(customName) {
+        console.log("Modifiers dashbord Name : ",customName);
+        expect("Regular Pizza").toEqual(customName);
+        return this;
+     });
+}
+
     //Sub modfiers functions
     this.clickOnAddSubModifiersIcon=function(){
         buttonActions.click(addSubModifiers)
@@ -131,6 +187,10 @@ module.exports = function () {
     }
     this.SaveSubModifiers=function(){
         buttonActions.click(SubModifiersSelectAll)
+        return this;
+    }
+    this.clickOnSubModifiersEditBtn=function(){
+        buttonActions.click(subModifiersEditBtn)
         return this;
     }
     this.alertAddSubModifiersButton=function(){
@@ -160,6 +220,42 @@ module.exports = function () {
         return this;
     }
 
+    //sub modifiers Name validation
+    this.validationSubModifiersOption=function(){
+        subModifiersOptionName.getText().then(function(SubModifierOption){
+            console.log("custom sub modifers Name validation :" ,SubModifierOption)
+            expect(SubModifierOption).toEqual("Medium")
+            return this;
+        })
+    }
+    //Custom Sub modifier validation
+    this.validationcustomSubModifiers=function(){
+    customSubModifierValidation.getText().then(function(customSubModifier){
+        console.log("custom sub modifers Name validation :" ,customSubModifier)
+        expect(customSubModifier).toEqual("Medium Pizza")
+        return this;
+    })
+}
+
+//Combo menu Dependency submodifiers
+this.clickOnSubModifiersDashBoardSmall=function(){
+    buttonActions.click(subModifiersDashBoardSmall)
+    return this;
+}
+this.clickOnChooseSubModifiersSmall=function(){
+    buttonActions.click(chooseSubModifiersSmall)
+    return this;
+}
+this.clickOnSmallSelectAll=function(){
+    buttonActions.click(smallSelectAll)
+    return this;
+}
+this.ModifiersSubModifierSaveBtn=function(){
+    buttonActions.click(idliSaveBtn)
+    return this;
+}
+
+
     //Add Modifiers flow (function call reusablity)
     this.createModifiers = function () {
         waitActions.wait()
@@ -170,7 +266,6 @@ module.exports = function () {
         this.clickOnSelectAll()
         waitActions.wait()
         this.clickOnSaveBtn()
-        waitActions.wait()
         waitActions.wait()
         waitActions.wait()
         this.clickOnEditIcon()
@@ -186,9 +281,6 @@ module.exports = function () {
 
     //Create custom Modifiers flow
     this.createCustomModifiers = function (addCustomModifiersName,optionName) {
-        waitActions.wait()
-        waitActions.wait()
-        this.clickOnHedaerModifiers()
         waitActions.wait()
         this.clickOnAddModifiers()
         waitActions.wait()
@@ -230,7 +322,51 @@ module.exports = function () {
         waitActions.wait()
         waitActions.wait()
     }
+//custom item Create Dependency item 
+ this.modifiersMenuItem=function(){
+     waitActions.wait()
+     this.clickOnAddModifiers()
+     waitActions.wait()
+    this.clickOnModifiersIdli()
+    waitActions.wait()
+    this.clickOnSaveBtn()
+    waitActions.wait()
+    waitActions.wait()
+    this.clickOnModifierDashBoadIdli()
+    waitActions.wait()
+    this.clickOnToggleSwitch()
+    waitActions.wait()
+    this.ModifiersSubModifierSaveBtn()
+    browser.sleep(7000) //signout button is not visible so given delay
+ }
+
    
+//Modifiers Validation flow
+this.modifiersItemsValidation=function(){
+    waitActions.wait();
+    this.clickOnHedaerModifiers()
+    waitActions.wait();
+    this.clickOnAddModifiers()
+    waitActions.wait()
+    this.clickOnSelectAll()
+    waitActions.wait()
+    this.modifiersNameValidation();
+    waitActions.wait()
+    this.clickOnSaveBtn()
+    waitActions.wait()
+    this.ModifiersDashBoardGetItemName()
+    waitActions.wait()
+    waitActions.wait()
+}
+
+
+//Custom modifiers validation
+this.customModifiersValidation=function(){
+    waitActions.wait()
+    this.customModifiersNameValidation()
+    waitActions.wait()
+}
+
     //Add Sub modifiers 
     this.createSubModifiers=function(){
         waitActions.wait()
@@ -240,10 +376,11 @@ module.exports = function () {
         waitActions.wait()
         this.clickOnSelectAll()
         waitActions.wait()
+        this.validationSubModifiersOption()
         this.clickOnSaveBtn()
         waitActions.wait()
         waitActions.wait()
-        this.clickOnEditIcon()
+        this.clickOnSubModifiersEditBtn()
         waitActions.wait()
         this.clickOnSelectAll()
         waitActions.wait()
@@ -273,6 +410,13 @@ module.exports = function () {
         waitActions.wait()
     }
 
+    //sub modifiers validation
+    this.validationSubmodifiers=function(){
+        waitActions.wait()
+        this.validationcustomSubModifiers()
+        waitActions.wait()
+    }
+ 
     //Update Custom subModifiers by Edit and delete functions
     this.editCustomSubModifiers=function(editCustomSubModifiers,editSubModifierOptionName){
         waitActions.wait()
@@ -297,5 +441,22 @@ module.exports = function () {
         this.clickOnDeleteBtn()
         waitActions.wait()
         waitActions.wait()
+    }
+
+    //combo menu dependency
+    this.subModifiersComboMenu=function(){
+        this.clickOnAddSubModifiersIcon()
+        waitActions.wait()
+        this.clickOnChooseSubModifiersSmall()
+        waitActions.wait()
+        this.clickOnSaveBtn()
+        waitActions.wait()
+        waitActions.wait()
+        this.clickOnSubModifiersDashBoardSmall()
+        waitActions.wait()
+        this.clickOnSmallSelectAll()
+        waitActions.wait()
+        this.ModifiersSubModifierSaveBtn()
+      browser.sleep(7000) //signout button is not visible so given delay
     }
 }

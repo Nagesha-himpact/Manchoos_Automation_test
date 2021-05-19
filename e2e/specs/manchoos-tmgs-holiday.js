@@ -17,16 +17,18 @@ describe('timings & calendar holiday flow ',function(){
         timingsCalendarPage.clickOnTimingsCalendar()
         timingsCalendarPage.clickOnHolidayHeader()
         timingsCalendarHolidayPage.createHoliday()
+        timingsCalendarHolidayPage.removeHoliday()
         dashBoardPage.logout()
     })
-
-    //Create other Holiday flow
+    
     it('Create other holiday flow ', function(){
         loginPage.loginPage(testData.manchoos.baseUrl)
         loginPage.login(testData.credentials.userName,testData.credentials.passWord)
         leftNavigationPage.navigateToRestaurantProfile()
+        timingsCalendarPage.clickOnTimingsCalendar()
         timingsCalendarPage.clickOnHolidayHeader()
-        timingsCalendarPage.createOtherHolidayFlow()
+        timingsCalendarHolidayPage.createOtherHolidayFlow(testData.timingsCalendar.otherHolidayMsg)
         dashBoardPage.logout()
     })
+
 })

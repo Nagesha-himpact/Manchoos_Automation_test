@@ -1,6 +1,6 @@
 {
   "manchoos": {
-    "baseUrl": "https://rm---qa.web.app"
+    "baseUrl": "https://rm-qa1.web.app/"
   },
   "credentials": {
     "userName": "nagesh@123",
@@ -27,7 +27,24 @@
     "updateAddNoTable" : "20"
   },
   "timingsCalendar" : {
-    "breakFast" : "BreakFast"
+    "breakFast" : "BreakFast",
+    "otherHolidayMsg" : "Restaurant Holiday",
+    "eventName" : "BirthDay Party"
+
+  },
+  "adminisratativeDetails" : {
+    "phoneNumber" : "9754867824",
+    "secondaryPhoneNumber" : "9754867821",
+    "emailId" : "manchoos@gmail.com",
+    "secondaryEmailid" : "invites@gmail.com",
+    "gstNumber" : "202154685487858",
+    "vatNumber" : "20214572451",
+    "panNumber" : "ANCVO12EZS",
+    "fssaiNumber" : "2021KL48475785",
+    "gstCertficateEdit" : "C:\\Users\\user\\Desktop\\editGstCertificate.pdf",
+    "fssaiEditedCertificate" :"C:\\Users\\user\\Desktop\\editFssaiCertificate.pdf",
+    "uploadCertificateofGst" : "C:\\Users\\user\\Desktop\\gstfile.pdf",
+    "uploadCertificateOfFssai" : "C:\\Users\\user\\Desktop\\Fssaicertificate.pdf"
   },
   "modifiers" : {
     "addCustomModifiersName" :"Regular Pizza",
@@ -49,16 +66,27 @@
     "editOptionName" : "One ltr",
     "editPrice" : "40"
   },
-  "results": {
-    "result1": "www.helloselenium.com"
+  "menuCustomItem" :{
+    "customItemName" : "Chicken biriyani",
+    "customItemDescription" : "Chicken dum biriyani biriyani",
+    "customItemUniqeCode" : "MA-102",
+    "customItemPrice" : "299",
+    "customItemDiscount" : "20",
+    "customItemNameEdit" : "Chiken lollipop"
+
   },
-  "users": {
-    "firstName": "demo",
-    "lastName" : "user",
-    "email" : "demouser@gmail.com",
-    "phoneNumber" : "1234567890",
-    "Address" : "No 123 4ths street NA",
-    "State" : "Karnataka",
-    "zipCode" : "560056"
-  }
+  "customMenu" : {
+    "enterRestaurantSpecial" : "Restaurant Special",
+    "editRestaurantSpecial" : "Republic day"
+  },
+"comboMenu" :{
+  "enterComboMenuName" : "Chicken Special",
+  "modPrice" : "100",
+  "modDisc" : "20",
+  "modServing" : "1",
+  "subMdfrDiscnt" : "10",
+  "subMdfrPrice" : "199",
+  "addOnsDiscnt" : "10",
+  "addOnsPrice" : "99"
+}
 }

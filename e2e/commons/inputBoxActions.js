@@ -48,7 +48,18 @@ module.exports = function () {
             });
         }
     };
-
+    this.fileUpload = function (element, value) {
+        if (typeof element !== 'undefined') {
+            element.isDisplayed().then(function () {
+                element.isEnabled().then(function () {
+                    if (typeof value !== 'undefined') {
+                        element.sendKeys(value);
+                    }
+                    return this;
+                });
+            });
+        }
+    };
     // this.getelements = function(element, option) {
     //     if(typeof element != 'undefined') {
     //         switch(option){
